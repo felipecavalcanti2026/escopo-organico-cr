@@ -587,6 +587,235 @@ table.tight th{ padding:7px 9px; }
 .c9.m{ background:rgba(37,244,238,.18); color:var(--teal); }
 
 
+/* ---- extras da peca 04 ---- */
+
+
+
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+
+:root{
+  --ink:#0a0a0b; --panel:#141416; --panel2:#1a1a1e; --near:#0a0a0b;
+  --cream:#f5f5f4; --white:#ffffff;
+  --red:#fe2c55; --cyan:#25f4ee; --teal:#0fb9b2;
+  --ink-soft:#3d3d42; --mut:#8a8a90; --mut2:#6b6b72;
+  --line-dark:rgba(255,255,255,.10); --line-light:rgba(0,0,0,.10);
+  --display:'Space Grotesk',-apple-system,sans-serif;
+  --body:'Inter',-apple-system,sans-serif;
+  --serif:'Instrument Serif',Georgia,serif;
+}
+
+
+.slide{
+  width:1280px; height:720px; position:relative; overflow:hidden;
+  background:var(--cream); color:var(--ink); page-break-after:always; break-after:page;
+  padding:44px 64px 46px; display:flex; flex-direction:column;
+}
+.slide:last-child{ page-break-after:auto; }
+@media screen{ .slide{ margin:0 auto 26px; box-shadow:0 14px 50px rgba(0,0,0,.55); } }
+
+.slide.dark{ background:var(--ink); color:var(--cream); }
+.slide.panel{ background:var(--panel); color:var(--cream); }
+
+h1,h2,h3,h4{ font-family:var(--display); font-weight:600; letter-spacing:-.025em; line-height:1.05; }
+em.s{ font-family:var(--serif); font-style:italic; font-weight:400; letter-spacing:0; }
+.red{ color:var(--red); } .cy{ color:var(--cyan); }
+
+/* head / foot */
+.s-head{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:20px; }
+.tag{ font-family:var(--display); font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--red); display:flex; align-items:center; gap:9px; }
+.tag::before{ content:''; width:22px; height:2px; background:var(--red); display:block; }
+.slide.dark .tag, .slide.panel .tag{ color:var(--cyan); }
+.slide.dark .tag::before, .slide.panel .tag::before{ background:var(--cyan); }
+.num{ font-family:var(--display); font-size:11px; font-weight:600; letter-spacing:.16em; color:#7a7a82; }
+.slide.dark .num, .slide.panel .num{ color:#7a7a82; }
+.foot{ position:absolute; left:64px; right:64px; bottom:20px; display:flex; justify-content:space-between;
+  align-items:center; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:#8a8a90;
+  border-top:1px solid var(--line-light); padding-top:11px; font-weight:500; }
+.slide.dark .foot, .slide.panel .foot{ border-top-color:var(--line-dark); color:#6b6b72; }
+
+h2.t{ font-size:46px; margin-bottom:14px; color:var(--ink); }
+.slide.dark h2.t, .slide.panel h2.t{ color:var(--white); }
+h2.t.sm{ font-size:38px; }
+.lead{ font-size:15.5px; line-height:1.62; color:var(--ink-soft); max-width:960px; font-weight:400; }
+.slide.dark .lead, .slide.panel .lead{ color:#a9a9b0; }
+.lead strong{ font-weight:600; color:var(--ink); }
+.slide.dark .lead strong, .slide.panel .lead strong{ color:var(--white); }
+.rule{ width:56px; height:2px; background:var(--red); margin:16px 0 20px; }
+.body-wrap{ flex:1; display:flex; flex-direction:column; min-height:0; }
+
+/* COVER */
+.cover{ justify-content:center; padding:0 90px; }
+.cover .kick{ font-family:var(--display); font-size:11px; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--cyan); margin-bottom:30px; }
+.cover h1{ font-size:78px; line-height:.98; color:var(--white); margin-bottom:24px; letter-spacing:-.035em; }
+.cover h1 em.s{ color:var(--red); font-size:82px; }
+.cover .sub{ font-size:17px; line-height:1.6; color:#8a8a90; max-width:820px; font-weight:400; }
+.cover .meta{ display:flex; gap:54px; margin-top:44px; padding-top:26px; border-top:1px solid var(--line-dark); }
+.cover .meta div span{ display:block; font-family:var(--display); font-size:9.5px; letter-spacing:.18em;
+  text-transform:uppercase; color:#6b6b72; margin-bottom:7px; }
+.cover .meta div strong{ font-size:14px; color:var(--cream); font-weight:500; }
+
+/* INDEX */
+.idx{ display:grid; grid-template-columns:1fr 1fr; gap:0 60px; margin-top:6px; }
+.idx-i{ display:flex; gap:16px; padding:13px 0; border-bottom:1px solid var(--line-dark); align-items:baseline; }
+.idx-i b{ font-family:var(--display); font-size:11px; color:var(--red); letter-spacing:.1em; width:24px; flex:none; }
+.idx-i span{ font-family:var(--display); font-size:15px; font-weight:500; color:var(--cream); }
+.idx-i i{ font-style:normal; font-size:11.5px; color:#8a8a90; margin-left:auto; }
+
+/* GRIDS + CARDS */
+.g2{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.g3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.g4{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.g5{ display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
+
+.card{ background:var(--white); border:1px solid var(--line-light); border-radius:12px; padding:20px 20px 22px; }
+.slide.dark .card, .slide.panel .card{ background:var(--panel2); border-color:var(--line-dark); }
+.card .ct{ font-family:var(--display); font-size:10px; font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--red); margin-bottom:11px; }
+.card h4{ font-size:18px; margin-bottom:9px; letter-spacing:-.02em; color:var(--ink); }
+.slide.dark .card h4, .slide.panel .card h4{ color:var(--white); }
+.card p{ font-size:12.5px; line-height:1.58; color:var(--ink-soft); }
+.slide.dark .card p, .slide.panel .card p{ color:#a9a9b0; }
+.card ul{ list-style:none; margin-top:9px; }
+.card ul li{ font-size:12px; line-height:1.5; color:var(--ink-soft); padding-left:14px; position:relative; margin-bottom:6px; }
+.card ul li::before{ content:''; position:absolute; left:0; top:7px; width:5px; height:5px; border-radius:50%; background:var(--red); }
+.slide.dark .card ul li, .slide.panel .card ul li{ color:#a9a9b0; }
+.card.cy .ct{ color:var(--cyan); } .card.cy ul li::before{ background:var(--cyan); }
+.card.hi{ background:var(--ink); color:var(--cream); border-color:transparent; }
+.card.hi h4{ color:var(--white); } .card.hi p{ color:#a9a9b0; }
+.card.red{ background:var(--red); border-color:transparent; }
+.card.red .ct{ color:rgba(255,255,255,.65); } .card.red h4{ color:#fff; } .card.red p{ color:rgba(255,255,255,.9); }
+
+/* PILL / STAT */
+.stat{ font-family:var(--display); font-size:40px; font-weight:700; letter-spacing:-.03em; line-height:1; color:var(--red); }
+.slide.dark .stat, .slide.panel .stat{ color:var(--cyan); }
+.stat-l{ font-size:11px; color:var(--mut2); margin-top:9px; line-height:1.45; }
+.slide.dark .stat-l, .slide.panel .stat-l{ color:var(--mut); }
+
+.pill{ display:inline-block; font-family:var(--display); font-size:9.5px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; padding:5px 11px; border-radius:99px; }
+.p-red{ background:rgba(254,44,85,.12); color:var(--red); }
+.p-cy{ background:rgba(37,244,238,.14); color:var(--teal); }
+.p-ink{ background:rgba(0,0,0,.07); color:var(--ink-soft); }
+.slide.dark .p-ink, .slide.panel .p-ink{ background:rgba(255,255,255,.09); color:#b4b4ba; }
+
+/* FLOW */
+.flow{ display:flex; align-items:stretch; gap:0; margin:18px 0; }
+.flow-s{ flex:1; background:var(--white); border:1px solid var(--line-light); border-radius:10px;
+  padding:15px 15px 17px; position:relative; }
+.slide.dark .flow-s, .slide.panel .flow-s{ background:var(--panel2); border-color:var(--line-dark); }
+.flow-s b{ display:block; font-family:var(--display); font-size:10px; font-weight:700;
+  letter-spacing:.16em; color:var(--red); margin-bottom:9px; }
+.flow-s h5{ font-family:var(--display); font-size:15px; font-weight:600; margin-bottom:7px;
+  letter-spacing:-.02em; color:var(--ink); }
+.slide.dark .flow-s h5, .slide.panel .flow-s h5{ color:var(--white); }
+.flow-s p{ font-size:11.5px; line-height:1.52; color:var(--ink-soft); }
+.slide.dark .flow-s p, .slide.panel .flow-s p{ color:#a9a9b0; }
+.arw{ flex:none; width:26px; display:flex; align-items:center; justify-content:center;
+  font-size:15px; color:var(--red); font-weight:700; }
+
+/* TABLE */
+table{ width:100%; border-collapse:collapse; font-size:11.5px; }
+th{ font-family:var(--display); font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  text-align:left; padding:9px 10px; color:var(--red); border-bottom:1.5px solid var(--red); white-space:nowrap; }
+.slide.dark th, .slide.panel th{ color:var(--cyan); border-bottom-color:var(--cyan); }
+td{ padding:8.5px 10px; border-bottom:1px solid var(--line-light); vertical-align:top; line-height:1.42; color:var(--ink-soft); }
+.slide.dark td, .slide.panel td{ border-bottom-color:var(--line-dark); color:#a9a9b0; }
+td b{ color:var(--ink); font-weight:600; }
+.slide.dark td b, .slide.panel td b{ color:var(--white); }
+table.tight td{ padding:6.5px 9px; font-size:11px; }
+table.tight th{ padding:7px 9px; }
+
+/* QUOTE / BIG */
+.big{ font-family:var(--display); font-size:44px; font-weight:600; line-height:1.12; letter-spacing:-.03em; color:var(--ink); }
+.big em.s{ font-size:48px; color:var(--red); }
+.slide.dark .big, .slide.panel .big{ color:var(--white); }
+
+/* HOOK LIST */
+.hooks{ columns:2; column-gap:34px; margin-top:6px; }
+.hook{ break-inside:avoid; display:flex; gap:11px; margin-bottom:11px; align-items:flex-start; }
+.hook b{ font-family:var(--display); font-size:10px; color:var(--red); flex:none; width:19px; padding-top:2px; }
+.hook span{ font-size:12px; line-height:1.5; color:var(--ink-soft); }
+.slide.dark .hook span, .slide.panel .hook span{ color:#b4b4ba; }
+
+/* SPLIT */
+.split{ display:grid; grid-template-columns:1fr 1fr; gap:22px; flex:1; min-height:0; }
+.box{ border:1px solid var(--line-light); border-radius:12px; padding:20px; }
+.slide.dark .box, .slide.panel .box{ border-color:var(--line-dark); }
+.box.ok{ border-color:rgba(15,185,178,.4); background:rgba(15,185,178,.05); }
+.box.no{ border-color:rgba(254,44,85,.35); background:rgba(254,44,85,.045); }
+.box h4{ font-size:16px; margin-bottom:12px; display:flex; align-items:center; gap:9px; color:var(--ink); }
+.box.ok h4{ color:var(--teal); } .box.no h4{ color:var(--red); }
+.box li{ font-size:12px; line-height:1.55; color:var(--ink-soft); padding-left:16px; position:relative;
+  margin-bottom:8px; list-style:none; }
+.slide.dark .box li, .slide.panel .box li{ color:#a9a9b0; }
+.box.ok li::before{ content:'✓'; position:absolute; left:0; color:var(--teal); font-weight:700; font-size:11px; }
+.box.no li::before{ content:'✕'; position:absolute; left:0; color:var(--red); font-weight:700; font-size:11px; }
+
+.note{ margin-top:auto; padding:13px 17px; background:rgba(254,44,85,.07); border-left:3px solid var(--red);
+  border-radius:0 8px 8px 0; font-size:12.5px; line-height:1.55; color:var(--ink-soft); }
+.slide.dark .note, .slide.panel .note{ background:rgba(254,44,85,.1); color:#b4b4ba; }
+.note b{ color:var(--red); font-weight:600; }
+.note.cy{ background:rgba(37,244,238,.08); border-left-color:var(--cyan); }
+.note.cy b{ color:var(--teal); }
+
+.ladder{ display:flex; flex-direction:column; gap:11px; }
+.lad{ display:flex; align-items:stretch; border:1px solid var(--line-light); border-radius:11px; overflow:hidden; }
+.slide.dark .lad, .slide.panel .lad{ border-color:var(--line-dark); }
+.lad-n{ flex:none; width:74px; background:var(--ink); color:var(--white); display:flex; flex-direction:column;
+  align-items:center; justify-content:center; font-family:var(--display); }
+.lad-n b{ font-size:22px; font-weight:700; letter-spacing:-.02em; }
+.lad-n span{ font-size:8.5px; letter-spacing:.12em; color:var(--cyan); margin-top:3px; }
+.lad-b{ flex:1; padding:14px 18px; }
+.lad-b h5{ font-family:var(--display); font-size:15px; font-weight:600; margin-bottom:5px; color:var(--ink); }
+.lad-b p{ font-size:11.5px; line-height:1.5; color:var(--ink-soft); }
+.slide.dark .lad-b p, .slide.panel .lad-b p{ color:#8a8a90; }
+.lad-p{ flex:none; width:150px; padding:14px 16px; border-left:1px solid var(--line-light);
+  display:flex; flex-direction:column; justify-content:center; }
+.slide.dark .lad-p, .slide.panel .lad-p{ border-left-color:var(--line-dark); }
+.lad-p b{ font-family:var(--display); font-size:17px; color:var(--red); }
+.lad-p span{ font-size:9.5px; color:var(--mut2); letter-spacing:.06em; margin-top:3px; }
+
+
+/* ---- componentes da peca 03 ---- */
+.kick2{ font-family:var(--display); font-size:10px; font-weight:700; letter-spacing:.24em;
+  text-transform:uppercase; color:var(--cyan); }
+.sl{ display:flex; align-items:center; gap:13px; }
+.sl span{ font-family:var(--display); font-size:10px; font-weight:600; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-soft); width:88px; flex:none; }
+.slide.dark .sl span, .slide.panel .sl span{ color:#b4b4ba; }
+.sl span:first-child{ text-align:right; }
+.sl b{ font-family:var(--display); font-size:13px; font-weight:700; color:var(--red); width:26px;
+  flex:none; text-align:right; font-variant-numeric:tabular-nums; }
+.slide.dark .sl b, .slide.panel .sl b{ color:var(--cyan); }
+.sl-t{ flex:1; height:3px; background:rgba(255,255,255,.12); border-radius:99px; position:relative; }
+.slide:not(.dark):not(.panel) .sl-t{ background:rgba(0,0,0,.1); }
+.sl-t i{ position:absolute; top:50%; width:11px; height:11px; border-radius:50%; background:var(--red);
+  transform:translate(-50%,-50%); box-shadow:0 0 0 3px rgba(254,44,85,.22); }
+.slide.dark .sl-t i, .slide.panel .sl-t i{ background:var(--cyan); box-shadow:0 0 0 3px rgba(37,244,238,.2); }
+.bio{ font-family:var(--body); font-size:12.5px; line-height:1.72; color:var(--cream);
+  background:var(--ink); border-radius:9px; padding:15px 16px; }
+.slide:not(.dark):not(.panel) .bio{ background:var(--ink); }
+.bio b{ font-weight:700; color:var(--red); }
+.grid9{ display:grid; grid-template-columns:repeat(3,1fr); gap:5px; margin-top:4px; }
+.c9{ aspect-ratio:1/1.05; border-radius:5px; display:flex; align-items:center; justify-content:center;
+  font-family:var(--display); font-size:8.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.c9.h{ background:rgba(255,255,255,.08); color:#8a8a90; }
+.slide:not(.dark):not(.panel) .c9.h{ background:rgba(0,0,0,.07); color:var(--mut2); }
+.c9.p{ background:var(--red); color:#fff; }
+.c9.m{ background:rgba(37,244,238,.18); color:var(--teal); }
+
+
+
+/* ---- componentes da peca 04 ---- */
+.card.hi{ background:var(--ink); border-color:transparent; }
+.card.hi h4{ color:var(--white); } .card.hi p{ color:#a9a9b0; }
+.slide.dark .card.hi, .slide.panel .card.hi{ background:#000; }
+
+
 
 /* ============================================================
    SHELL WEB — envolve os slides 1280x720 sem alterar o design
@@ -708,7 +937,7 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
 <header class="rail">
   <div class="rail-in">
     <div class="mark"><span>CR</span></div>
-    <nav><a href="#parte-01" data-sec>01 · Orgânico</a><a href="#parte-02" data-sec>02 · ManyChat</a><a href="#parte-03" data-sec>03 · Voz</a></nav>
+    <nav><a href="#parte-01" data-sec>01 · Orgânico</a><a href="#parte-02" data-sec>02 · ManyChat</a><a href="#parte-03" data-sec>03 · Voz</a><a href="#parte-04" data-sec>04 · Produto</a></nav>
   </div>
   <div class="prog"></div>
 </header>
@@ -717,8 +946,8 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
   <section class="hero">
     <div class="eyebrow">Escopo de lançamento · Funil orgânico · 2026</div>
     <h1>O <span class="ab" data-w="orgânico">orgânico</span> que traz<br>comprador, não seguidor.</h1>
-    <p>O sistema completo de comunicação e conversão do Caio Ronconi. Três peças: a estratégia editorial que instala a tese, a estrutura de ManyChat que transforma comentário em caixa, e a linha de voz que faz qualquer visitante entender em sete segundos o que ele faz.</p>
-    <div class="hero-meta"><div><span>Projeto</span><strong>Caio Ronconi · Esteira TikTok</strong></div><div><span>Preparado por</span><strong>Felipe Cavalcanti</strong></div><div><span>Peças</span><strong>3 documentos · 55 slides</strong></div><div><span>Status</span><strong>Para apresentação</strong></div></div>
+    <p>O sistema completo de comunicação e conversão do Caio Ronconi. Quatro peças: a estratégia editorial que instala a tese, a estrutura de ManyChat que transforma comentário em caixa, a linha de voz que torna o posicionamento legível em sete segundos, e a arquitetura do produto que tudo isso vende.</p>
+    <div class="hero-meta"><div><span>Projeto</span><strong>Caio Ronconi · Esteira TikTok</strong></div><div><span>Preparado por</span><strong>Felipe Cavalcanti</strong></div><div><span>Peças</span><strong>4 documentos · 72 slides</strong></div><div><span>Status</span><strong>Para apresentação</strong></div></div>
   </section>
   <div class="chapters">
     <a class="ch" href="#parte-01">
@@ -739,9 +968,15 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
       <p>O posicionamento em uma frase, o DNA de voz em seis eixos, o vocabulário proibido, o léxico proprietário, a arquitetura do perfil e as respostas prontas para as oito objeções.</p>
       <ul><li>19 slides</li><li>Frase-mãe</li><li>Bio pronta</li><li>4 rituais</li><li>8 objeções</li></ul>
     </a>
+    <a class="ch cy" href="#parte-04">
+      <div class="ch-n">Peça 04</div>
+      <h2>Arquitetura Curricular do Dólar Extra</h2>
+      <p>Os seis módulos e as 30 aulas do produto de entrada, o Sprint dos 7 Dias, onde cada gancho de back-end é plantado e — principalmente — o que fica de fora de propósito para não matar o Operação Dólar.</p>
+      <ul><li>17 slides</li><li>6 módulos</li><li>Sprint 7 dias</li><li>Fronteira</li><li>Anti-reembolso</li></ul>
+    </a>
   </div>
   <section class="sec-head" id="parte-01">
-    <div class="k">Peça 01 de 03</div>
+    <div class="k">Peça 01 de 04</div>
     <h2>Escopo de <em>Conteúdo Orgânico</em></h2>
     <div class="c">21 slides · pilares, cadência, ganchos e calendário</div>
   </section>
@@ -838,19 +1073,19 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
   <div class="rule"></div>
   <div class="ladder" style="margin-top:18px">
     <div class="lad"><div class="lad-n"><b>01</b><span>ENTRADA</span></div>
-      <div class="lad-b"><h5>A Tríade — Viralização + TikTok Shop + Dólar sem aparecer</h5>
-        <p>Conteúdo básico que gera as primeiras vendas + módulo introdutório de lives. Converte em escala e prova no bolso da pessoa que o método funciona do zero.</p></div>
+      <div class="lad-b"><h5>Dólar Extra — método A Tríade: viralização, TikTok Shop e dólar</h5>
+        <p>Entrega o <b>resultado</b>: primeira venda em 7 dias, com uma perna só. Teto declarado de R$7 a 10 mil por mês — é a limitação honesta que pré-vende o degrau seguinte.</p></div>
       <div class="lad-p"><b>R$ 197–297</b><span>Volume · pagamento único</span></div></div>
     <div class="lad"><div class="lad-n" style="background:var(--red)"><b>1.5</b><span style="color:#fff">UPSELL</span></div>
-      <div class="lad-b"><h5>Trends Virais — acesso antecipado</h5>
+      <div class="lad-b"><h5>Radar de Trends — a trend antes de saturar</h5>
         <p>Entra no pico de intenção, logo após a primeira compra. A trend certa mapeada e entregue pronta, antes de saturar. É o componente mais difícil de qualquer concorrente copiar.</p></div>
       <div class="lad-p"><b>R$ 497/mês</b><span>Recorrência</span></div></div>
     <div class="lad"><div class="lad-n"><b>02</b><span>ASCENSÃO</span></div>
-      <div class="lad-b"><h5>Todo o conteúdo + Hack TikTok Shop + Curso de Lives com I.A.</h5>
-        <p>Ferramentas completas e acesso à comunidade. O degrau de quem já sentiu o primeiro resultado e quer operar de verdade. Vendido por webinário ao vivo para a base que já comprou.</p></div>
+      <div class="lad-b"><h5>Operação Dólar — a máquina: Hack do Shop + Lives com I.A.</h5>
+        <p>Ferramentas completas e acesso à comunidade. Entrega a <b>máquina</b>: escala, terceirização e operação sem presença. Vendido no Workshop A Máquina, ao vivo, para quem já comprou e já executou.</p></div>
       <div class="lad-p"><b>R$ 1.200–1.500</b><span>Turma que abre e fecha</span></div></div>
     <div class="lad"><div class="lad-n"><b>03</b><span>TOPO</span></div>
-      <div class="lad-b"><h5>Mentoria personalizada — implantação de estrutura completa</h5>
+      <div class="lad-b"><h5>Estrutura — mentoria de implantação completa</h5>
         <p>High ticket com webinário, app de lives e acompanhamento direto. Nunca vendido no feed: apresentado só para base qualificada, em ambiente privado.</p></div>
       <div class="lad-p"><b>Sob consulta</b><span>Alto ticket · vagas reais</span></div></div>
   </div>
@@ -865,13 +1100,13 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
   <div class="g3" style="margin-top:24px">
     <div class="card"><div class="ct">Avatar A · ~50% da base</div><h4>O Viralizador Falido</h4>
       <p style="margin-bottom:10px">Já posta, já pegou view, ganha zero. Conhece a plataforma, não conhece o caixa.</p>
-      <ul><li><b>Dor:</b> "1 milhão de views e R$ 0 na conta"</li><li><b>Objeção:</b> "já tentei, não funciona pra mim"</li><li><b>Ângulo:</b> monetização, não alcance</li><li><b>Destino:</b> A Tríade → Trends</li></ul></div>
+      <ul><li><b>Dor:</b> "1 milhão de views e R$ 0 na conta"</li><li><b>Objeção:</b> "já tentei, não funciona pra mim"</li><li><b>Ângulo:</b> monetização, não alcance</li><li><b>Destino:</b> Dólar Extra → Radar de Trends</li></ul></div>
     <div class="card cy"><div class="ct">Avatar B · ~35% da base</div><h4>O Invisível</h4>
       <p style="margin-bottom:10px">Quer renda extra, não quer aparecer. Trava na exposição, não na técnica.</p>
-      <ul><li><b>Dor:</b> "eu não tenho cara pra internet"</li><li><b>Objeção:</b> "isso só funciona pra quem é bonito/engraçado"</li><li><b>Ângulo:</b> TikTok Shop + lives com I.A. + dólar sem rosto</li><li><b>Destino:</b> A Tríade → Produto 2</li></ul></div>
+      <ul><li><b>Dor:</b> "eu não tenho cara pra internet"</li><li><b>Objeção:</b> "isso só funciona pra quem é bonito/engraçado"</li><li><b>Ângulo:</b> TikTok Shop + lives com I.A. + dólar sem rosto</li><li><b>Destino:</b> Dólar Extra → Operação Dólar</li></ul></div>
     <div class="card"><div class="ct">Avatar C · ~15% da base</div><h4>O Operador</h4>
       <p style="margin-bottom:10px">Já vende alguma coisa, quer máquina. Tem dinheiro e pressa, não tem estrutura.</p>
-      <ul><li><b>Dor:</b> "eu vendo na sorte, não tem sistema"</li><li><b>Objeção:</b> "eu não tenho tempo de aprender"</li><li><b>Ângulo:</b> estrutura, escala, operação</li><li><b>Destino:</b> Produto 2 → Mentoria</li></ul></div>
+      <ul><li><b>Dor:</b> "eu vendo na sorte, não tem sistema"</li><li><b>Objeção:</b> "eu não tenho tempo de aprender"</li><li><b>Ângulo:</b> estrutura, escala, operação</li><li><b>Destino:</b> Operação Dólar → Estrutura</li></ul></div>
   </div>
   <div class="note" style="margin-top:22px"><b>Consequência prática:</b> o Avatar B é o mais negligenciado do mercado e o mais fácil de ganhar. Ninguém está falando com quem não quer aparecer — e é exatamente esse público que o TikTok Shop e as lives com I.A. resolvem. <b>Recomendo abrir a operação orgânica por ele.</b></div>
   <div class="foot"><span>Avatares</span><span>06</span></div>
@@ -1061,7 +1296,7 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
       <ul><li>1 Reels/dia (repost do melhor do TikTok, sem marca d'água)</li><li>2 carrosséis/semana — formato de maior salvamento</li><li>6–8 stories/dia com sequência narrativa, não avulsos</li><li>Destaque fixo: "Comece aqui" e "Provas"</li></ul></div>
   </div>
   <div class="g3" style="margin-top:16px">
-    <div class="card"><div class="ct">Canal de venda</div><h4>Lives</h4><p>Onde o Caio é mais forte, o formato que ele ensina no Produto 2, e o canal de maior conversão por hora investida. 2× por semana, sempre com data anunciada.</p></div>
+    <div class="card"><div class="ct">Canal de venda</div><h4>Lives</h4><p>Onde o Caio é mais forte, o formato que ele ensina no Operação Dólar, e o canal de maior conversão por hora investida. 2× por semana, sempre com data anunciada.</p></div>
     <div class="card"><div class="ct">Canal de cauda</div><h4>YouTube Shorts</h4><p>Repost automático de todo o TikTok. Esforço marginal zero, cauda longa alta. Não recebe conteúdo próprio nesta fase.</p></div>
     <div class="card"><div class="ct">Canal de posse</div><h4>Lista (DM + WhatsApp)</h4><p>O único ativo que não pertence à plataforma. Tudo que o ManyChat captura é migrado para lista própria — proteção contra qualquer mudança de algoritmo ou política.</p></div>
   </div>
@@ -1072,7 +1307,7 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
   <div class="s-head"><div class="tag">Formato-chave</div><div class="num">15</div></div>
   <h2 class="t" style="color:#fff">A live é o ativo mais <em class="s red">subaproveitado</em> da operação.</h2>
   <div class="rule"></div>
-  <div class="lead">Ela acumula três funções ao mesmo tempo: é o formato onde o Caio converte melhor, é o próprio conteúdo do Produto 2 (Curso de Lives com I.A.) e é a maior fonte de monetização direta dentro do TikTok. <strong>Tratar live como lazer é o erro mais caro do escopo atual.</strong></div>
+  <div class="lead">Ela acumula três funções ao mesmo tempo: é o formato onde o Caio converte melhor, é o próprio conteúdo do Operação Dólar (Curso de Lives com I.A.) e é a maior fonte de monetização direta dentro do TikTok. <strong>Tratar live como lazer é o erro mais caro do escopo atual.</strong></div>
   <div class="flow" style="margin-top:24px">
     <div class="flow-s"><b>BLOCO 01 · 0–10min</b><h5>Aquecimento</h5><p>Chegada, humor, interação com quem entra. Sem assunto sério — a plataforma precisa de tempo para distribuir a live.</p></div>
     <div class="arw">→</div>
@@ -1124,12 +1359,12 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
     <tr><td><b>1 · Plantio</b></td><td>Sem. 1–2</td><td>Instalar a tese e construir o banco de prova. Nada é vendido. Toda a energia vai para "view não paga, dólar paga".</td><td>40% Alcance · 30% Prova · 20% Inimigo · 10% Mecanismo</td><td>ManyChat no ar testando com isca gratuita</td></tr>
     <tr><td><b>2 · Tensão</b></td><td>Sem. 3–4</td><td>Explicar a Tríade em partes, criar lacuna e começar a capturar em volume. A lista começa a existir.</td><td>30% Mecanismo · 25% Prova · 25% Alcance · 20% Execução</td><td>1.000 contatos capturados na DM</td></tr>
     <tr><td><b>3 · Conversão</b></td><td>Sem. 5–6</td><td>Abrir A Tríade para a base já aquecida. Live de lançamento e upsell de Trends ativo desde o primeiro dia.</td><td>35% Execução/Oferta · 30% Prova · 20% Mecanismo · 15% Alcance</td><td>Primeiras vendas · validação da copy</td></tr>
-    <tr><td><b>4 · Ascensão</b></td><td>Sem. 7–8</td><td>Aquecer quem comprou, conduzir ao webinário e apresentar o Produto 2. Alto ticket só aqui, nunca antes.</td><td>Conteúdo segmentado por tag · orgânico volta a 40% Alcance</td><td>Webinário com turma que abre e fecha</td></tr>
+    <tr><td><b>4 · Ascensão</b></td><td>Sem. 7–8</td><td>Aquecer quem comprou, conduzir ao webinário e apresentar o Operação Dólar. Alto ticket só aqui, nunca antes.</td><td>Conteúdo segmentado por tag · orgânico volta a 40% Alcance</td><td>Webinário com turma que abre e fecha</td></tr>
   </table>
   <div class="g3" style="margin-top:24px">
     <div class="card"><div class="ct">Sequenciamento</div><h4>Por que Plantio antes de tudo</h4><p>Vender antes da tese instalada faz qualquer preço parecer caro. Duas semanas sem pedir nada é o investimento que barateia toda a conversão seguinte.</p></div>
     <div class="card cy"><div class="ct">Validação</div><h4>O orgânico valida a copy</h4><p>Gancho, oferta e ângulo são testados com dinheiro real na fase 3, antes de um centavo entrar em mídia paga. O Funil A só liga depois que o B provar.</p></div>
-    <div class="card"><div class="ct">Proteção</div><h4>Ascensão nunca no frio</h4><p>O Produto 2 e a mentoria são apresentados exclusivamente para quem já comprou. Oferecer alto ticket para base fria queima a lista antes dela amadurecer.</p></div>
+    <div class="card"><div class="ct">Proteção</div><h4>Ascensão nunca no frio</h4><p>O Operação Dólar e a Estrutura são apresentados exclusivamente para quem já comprou. Oferecer alto ticket para base fria queima a lista antes dela amadurecer.</p></div>
   </div>
   <div class="foot"><span>Calendário de 60 dias</span><span>17</span></div>
 </section><div class="sn">Peça 01 · 18 / 21</div></div>
@@ -1192,7 +1427,7 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
     <div class="card"><div class="ct">Destrava 01 · crítico</div><h4>Banco de prova</h4><p>Todo print de pagamento, painel, dashboard e resultado de aluno que já existe e pode ser mostrado publicamente — e com que frequência ele consegue gerar novos.</p></div>
     <div class="card"><div class="ct">Destrava 02 · crítico</div><h4>Metodologia da trend</h4><p>Como ele identifica uma trend antes de estourar, com que antecedência e por qual sinal. É o coração do Produto 1 e do upsell recorrente.</p></div>
     <div class="card"><div class="ct">Destrava 03</div><h4>Números reais da conta</h4><p>Faturamento por fonte, ticket médio, o que o TikTok Shop e a monetização pagaram nos últimos meses. Prova sem número exato não convence este avatar.</p></div>
-    <div class="card"><div class="ct">Destrava 04</div><h4>Formato do Curso de Lives com I.A.</h4><p>O que exatamente é o hack, quais ferramentas entram, e quanto disso pode ser mostrado de graça sem esvaziar o Produto 2.</p></div>
+    <div class="card"><div class="ct">Destrava 04</div><h4>Formato do Curso de Lives com I.A.</h4><p>O que exatamente é o hack, quais ferramentas entram, e quanto disso pode ser mostrado de graça sem esvaziar o Operação Dólar.</p></div>
     <div class="card"><div class="ct">Destrava 05</div><h4>Limites pessoais</h4><p>O que ele não quer falar, mostrar ou prometer. Melhor descobrir agora do que na terceira semana de calendário aprovado.</p></div>
     <div class="card red"><div class="ct">Destrava 06</div><h4>Aprovação da grade</h4><p>Confirmar os dois blocos de gravação e os dois horários fixos de live. É o único compromisso de agenda que o escopo inteiro exige — e ele é inegociável.</p></div>
   </div>
@@ -1201,7 +1436,7 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
 </section><div class="sn">Peça 01 · 21 / 21</div></div>
   </div></div>
   <section class="sec-head" id="parte-02">
-    <div class="k">Peça 02 de 03</div>
+    <div class="k">Peça 02 de 04</div>
     <h2>Estrutura de <em>ManyChat</em> + 30 postagens</h2>
     <div class="c">15 slides · palavras-chave, fluxos, scripts e calendário de captura</div>
   </section>
@@ -1262,12 +1497,12 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
   <div class="rule"></div>
   <div class="g2" style="gap:26px; margin-top:16px">
     <div>
-      <div class="kw"><code>TRIADE</code><div><b>Produto de entrada · R$ 197–297</b><br>Isca principal. Usada em conteúdo de mecanismo. Avatar A.</div></div>
-      <div class="kw"><code>DOLAR</code><div><b>Produto de entrada · ângulo sem aparecer</b><br>Usada em conteúdo de prova e TikTok Shop. Avatar B.</div></div>
-      <div class="kw"><code>TREND</code><div><b>Upsell recorrente · R$ 497/mês</b><br>Usada em conteúdo de execução e trend da semana.</div></div>
-      <div class="kw"><code>LIVE</code><div><b>Produto 2 · R$ 1.200–1.500</b><br>Usada em conteúdo sobre lives e I.A. Avatar B e C.</div></div>
-      <div class="kw"><code>SHOP</code><div><b>Entrada e Produto 2</b><br>Usada em conteúdo de configuração e venda dentro da plataforma.</div></div>
-      <div class="kw"><code>ESTRUTURA</code><div><b>Mentoria · alto ticket</b><br>Usada em conteúdo de autoridade e operação. Avatar C. Nunca em volume.</div></div>
+      <div class="kw"><code>TRIADE</code><div><b>Dólar Extra · R$ 197–297</b><br>Isca principal. A palavra é o método; o produto é o Dólar Extra. Avatar A.</div></div>
+      <div class="kw"><code>DOLAR</code><div><b>Dólar Extra · ângulo sem aparecer</b><br>Usada em conteúdo de prova e TikTok Shop. Avatar B.</div></div>
+      <div class="kw"><code>TREND</code><div><b>Radar de Trends · R$ 497/mês</b><br>Usada em conteúdo de execução e trend da semana.</div></div>
+      <div class="kw"><code>LIVE</code><div><b>Operação Dólar · R$ 1.200–1.500</b><br>Usada em conteúdo sobre lives e I.A. Avatar B e C.</div></div>
+      <div class="kw"><code>SHOP</code><div><b>Entrada e Operação Dólar</b><br>Usada em conteúdo de configuração e venda dentro da plataforma.</div></div>
+      <div class="kw"><code>ESTRUTURA</code><div><b>Estrutura · alto ticket</b><br>Usada em conteúdo de autoridade e operação. Avatar C. Nunca em volume.</div></div>
       <div class="kw" style="margin-bottom:0"><code>AULA</code><div><b>Isca genérica → VSL</b><br>Curinga para lives e stories quando o tema não se encaixa nas demais.</div></div>
     </div>
     <div>
@@ -1322,7 +1557,7 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
     <div>
       <div class="chat">
         <div class="delay">+ 2 horas · após resposta</div>
-        <div class="msg bot"><span class="who">ManyChat</span>Entendi. Olha, o que você acabou de descrever é literalmente o motivo de eu ter montado <b>A Tríade</b>.<br><br>São as 3 engrenagens que precisam estar ligadas ao mesmo tempo: viralização, TikTok Shop e monetização em dólar. Faltando uma, você trabalha de graça.<br><br>Custa menos que um delivery de fim de semana e é a coisa mais barata que eu vendo:<br><br>👉 <b>[CHECKOUT]</b></div>
+        <div class="msg bot"><span class="who">ManyChat</span>Entendi. Olha, o que você acabou de descrever é literalmente o motivo de eu ter montado o <b>Dólar Extra</b>.<br><br>Ele roda em cima da <b>Tríade</b>: são 3 engrenagens que precisam estar ligadas ao mesmo tempo: viralização, TikTok Shop e monetização em dólar. Faltando uma, você trabalha de graça.<br><br>Custa menos que um delivery de fim de semana e é a coisa mais barata que eu vendo:<br><br>👉 <b>[CHECKOUT]</b></div>
         <div class="delay">+ 24 horas · se não comprou</div>
         <div class="msg bot"><span class="who">ManyChat</span>Print que me mandaram ontem 👇<br><br><i>[imagem: saque de aluno]</i><br><br>Ele tem 19 anos, não aparece nos vídeos e começou há 3 semanas. Não é sorte, é configuração.</div>
       </div>
@@ -1359,11 +1594,11 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
   <div class="rule"></div>
   <table style="margin-top:16px">
     <tr><th style="width:110px">Palavra</th><th style="width:160px">Isca entregue</th><th style="width:190px">Pergunta de segmentação</th><th style="width:170px">Destino</th><th>Tag aplicada</th></tr>
-    <tr><td><code>TRIADE</code></td><td>Aula de 12 min sobre as 3 engrenagens</td><td>"Você já posta hoje?"</td><td><b>A Tríade · R$ 197–297</b></td><td>avatar-a · quente</td></tr>
-    <tr><td><code>DOLAR</code></td><td>Aula "monetizar sem aparecer"</td><td>"Você quer aparecer nos vídeos?"</td><td><b>A Tríade · ângulo invisível</b></td><td>avatar-b · sem-rosto</td></tr>
-    <tr><td><code>TREND</code></td><td>A trend da semana, entregue pronta</td><td>"Já usou trend antes e não deu certo?"</td><td><b>Upsell Trends · R$ 497/mês</b></td><td>trend · recorrencia</td></tr>
-    <tr><td><code>LIVE</code></td><td>Corte da melhor live + estrutura em 4 blocos</td><td>"Você já fez live no TikTok?"</td><td><b>Produto 2 · R$ 1.200–1.500</b></td><td>live-ia · avatar-b/c</td></tr>
-    <tr><td><code>ESTRUTURA</code></td><td>Convite para conversa, não material</td><td>"Você já fatura com isso hoje?"</td><td><b>Mentoria · triagem 1:1</b></td><td>avatar-c · alto-ticket</td></tr>
+    <tr><td><code>TRIADE</code></td><td>Aula de 12 min sobre as 3 engrenagens</td><td>"Você já posta hoje?"</td><td><b>Dólar Extra · R$ 197–297</b></td><td>avatar-a · quente</td></tr>
+    <tr><td><code>DOLAR</code></td><td>Aula "monetizar sem aparecer"</td><td>"Você quer aparecer nos vídeos?"</td><td><b>Dólar Extra · ângulo invisível</b></td><td>avatar-b · sem-rosto</td></tr>
+    <tr><td><code>TREND</code></td><td>A trend da semana, entregue pronta</td><td>"Já usou trend antes e não deu certo?"</td><td><b>Radar de Trends · R$ 497/mês</b></td><td>trend · recorrencia</td></tr>
+    <tr><td><code>LIVE</code></td><td>Corte da melhor live + estrutura em 4 blocos</td><td>"Você já fez live no TikTok?"</td><td><b>Operação Dólar · R$ 1.200–1.500</b></td><td>live-ia · avatar-b/c</td></tr>
+    <tr><td><code>ESTRUTURA</code></td><td>Convite para conversa, não material</td><td>"Você já fatura com isso hoje?"</td><td><b>Estrutura · triagem 1:1</b></td><td>avatar-c · alto-ticket</td></tr>
   </table>
   <div class="g3" style="margin-top:24px">
     <div class="card"><div class="ct">Fluxo de entrada</div><h4>TRIADE e DOLAR carregam o volume</h4><p>São os dois únicos que aparecem em posts de alcance amplo. Todo o resto entra em conteúdo já qualificado, para base que consome com frequência.</p></div>
@@ -1383,14 +1618,14 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
     <tr><td><b>03</b></td><td>Inimigo</td><td>Vídeo 40s</td><td>"Me mostra o print do seu saque. Não tem? Então você vende esperança."</td><td><code>DOLAR</code></td><td>Tríade</td></tr>
     <tr><td><b>04</b></td><td>Mecanismo</td><td>Carrossel</td><td>"3 coisas precisam estar ligadas ao mesmo tempo. Faltando uma, você trabalha de graça."</td><td><code>TRIADE</code></td><td>Tríade</td></tr>
     <tr><td><b>05</b></td><td>Alcance</td><td>Vídeo 20s</td><td>Reação a comentário engraçado do próprio perfil.</td><td>—</td><td>Distribuição</td></tr>
-    <tr><td><b>06</b></td><td>Prova</td><td>Vídeo 35s</td><td>"Cotação hoje tá em [X]. É por isso que eu largo tudo pra fazer live."</td><td><code>LIVE</code></td><td>Produto 2</td></tr>
+    <tr><td><b>06</b></td><td>Prova</td><td>Vídeo 35s</td><td>"Cotação hoje tá em [X]. É por isso que eu largo tudo pra fazer live."</td><td><code>LIVE</code></td><td>Operação Dólar</td></tr>
     <tr><td><b>07</b></td><td>Execução</td><td>Vídeo 45s</td><td>"Essa trend aqui vai estourar em 6 dias. Vou te falar por que eu sei."</td><td><code>TREND</code></td><td>Upsell</td></tr>
     <tr><td><b>08</b></td><td>Alcance</td><td>Vídeo 15s</td><td>Formato livre de humor, sem CTA.</td><td>—</td><td>Distribuição</td></tr>
     <tr><td><b>09</b></td><td>Mecanismo</td><td>Vídeo 40s</td><td>"A parte mais lucrativa do TikTok não aparece no seu feed."</td><td><code>SHOP</code></td><td>Tríade</td></tr>
     <tr><td><b>10</b></td><td>Prova</td><td>Vídeo 30s</td><td>"Esse vídeo aqui floppou. E mesmo assim pagou mais que o que bombou."</td><td><code>DOLAR</code></td><td>Tríade</td></tr>
     <tr><td><b>11</b></td><td>Inimigo</td><td>Vídeo 40s</td><td>"Se o cara que te ensina TikTok não tem TikTok, você tá aprendendo com o folheto."</td><td><code>TRIADE</code></td><td>Tríade</td></tr>
     <tr><td><b>12</b></td><td>Alcance</td><td>Vídeo 20s</td><td>Humor + número discreto no final ("esse aqui me pagou X").</td><td>—</td><td>Semente</td></tr>
-    <tr><td><b>13</b></td><td>Execução</td><td>Carrossel</td><td>"O setup completo de live que eu uso — 6 itens, 4 são gratuitos."</td><td><code>LIVE</code></td><td>Produto 2</td></tr>
+    <tr><td><b>13</b></td><td>Execução</td><td>Carrossel</td><td>"O setup completo de live que eu uso — 6 itens, 4 são gratuitos."</td><td><code>LIVE</code></td><td>Operação Dólar</td></tr>
     <tr><td><b>14</b></td><td>Prova</td><td>Vídeo 35s</td><td>"Aluno de 19 anos sacou R$ 340 na primeira semana. Print na tela, sem corte."</td><td><code>TRIADE</code></td><td>Tríade</td></tr>
     <tr><td><b>15</b></td><td>Mecanismo</td><td>Vídeo 45s</td><td>"Você não precisa aparecer. Eu apareço porque eu gosto, não porque é necessário."</td><td><code>DOLAR</code></td><td>Tríade</td></tr>
   </table>
@@ -1403,7 +1638,7 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
   <table class="tight">
     <tr><th style="width:34px">#</th><th style="width:98px">Pilar</th><th style="width:78px">Formato</th><th style="width:430px">Gancho</th><th style="width:88px">Palavra</th><th>Destino</th></tr>
     <tr><td><b>16</b></td><td>Alcance</td><td>Vídeo 15s</td><td>Humor puro. Nada de CTA — segura a média de entrega da semana.</td><td>—</td><td>Distribuição</td></tr>
-    <tr><td><b>17</b></td><td>Execução</td><td>Vídeo 45s</td><td>"Tem uma coisa que a I.A. já faz melhor que você numa live. E não é falar."</td><td><code>LIVE</code></td><td>Produto 2</td></tr>
+    <tr><td><b>17</b></td><td>Execução</td><td>Vídeo 45s</td><td>"Tem uma coisa que a I.A. já faz melhor que você numa live. E não é falar."</td><td><code>LIVE</code></td><td>Operação Dólar</td></tr>
     <tr><td><b>18</b></td><td>Prova</td><td>Vídeo 30s</td><td>"Gastei R$ 0 em anúncio nos últimos [X] meses. O caixa veio todo de dentro da plataforma."</td><td><code>TRIADE</code></td><td>Tríade</td></tr>
     <tr><td><b>19</b></td><td>Mecanismo</td><td>Carrossel</td><td>"Por que viralizar sozinho não paga ninguém — e o que precisa estar ligado junto."</td><td><code>TRIADE</code></td><td>Tríade</td></tr>
     <tr><td><b>20</b></td><td>Alcance</td><td>Vídeo 20s</td><td>Formato assinatura, sem CTA.</td><td>—</td><td>Distribuição</td></tr>
@@ -1412,11 +1647,11 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
     <tr><td><b>23</b></td><td>Prova</td><td>Vídeo 35s</td><td>"Abri uma conta zerada pra provar que não é sorte. Dia 12, primeiro dólar."</td><td><code>DOLAR</code></td><td>Tríade</td></tr>
     <tr><td><b>24</b></td><td>Alcance</td><td>Vídeo 15s</td><td>Humor livre.</td><td>—</td><td>Distribuição</td></tr>
     <tr><td><b>25</b></td><td>Mecanismo</td><td>Vídeo 40s</td><td>"O criador brasileiro tá numa posição que americano nenhum tem: recebe em dólar, gasta em real."</td><td><code>DOLAR</code></td><td>Tríade</td></tr>
-    <tr><td><b>26</b></td><td>Execução</td><td>Vídeo 45s</td><td>"Você tá deixando dinheiro na mesa toda live que faz sem essa configuração."</td><td><code>LIVE</code></td><td>Produto 2</td></tr>
+    <tr><td><b>26</b></td><td>Execução</td><td>Vídeo 45s</td><td>"Você tá deixando dinheiro na mesa toda live que faz sem essa configuração."</td><td><code>LIVE</code></td><td>Operação Dólar</td></tr>
     <tr><td><b>27</b></td><td>Prova</td><td>Carrossel</td><td>"5 prints de alunos que começaram do zero nos últimos 60 dias."</td><td><code>TRIADE</code></td><td>Tríade</td></tr>
     <tr><td><b>28</b></td><td>Autoridade</td><td>Vídeo 50s</td><td>"Se você já fatura e quer montar a operação inteira, esse vídeo é pra você — os outros podem pular."</td><td><code>ESTRUTURA</code></td><td>Mentoria</td></tr>
     <tr><td><b>29</b></td><td>Alcance</td><td>Vídeo 20s</td><td>Humor + semente de número.</td><td>—</td><td>Semente</td></tr>
-    <tr><td><b>30</b></td><td>Oferta</td><td>Vídeo 50s</td><td>"Eu abri A Tríade hoje. Custa menos que um delivery e é a coisa mais barata que eu vendo."</td><td><code>TRIADE</code></td><td>Checkout</td></tr>
+    <tr><td><b>30</b></td><td>Oferta</td><td>Vídeo 50s</td><td>"Eu abri o Dólar Extra hoje. Custa menos que um delivery e é a coisa mais barata que eu vendo."</td><td><code>TRIADE</code></td><td>Checkout</td></tr>
   </table>
   <div class="note cy" style="margin-top:14px"><b>Leitura do calendário:</b> 10 das 30 peças não pedem nada — são o oxigênio da distribuição. Das 20 restantes, 12 apontam para o produto de entrada. O topo da esteira aparece uma única vez em 30 postagens, e é assim que deve ser.</div>
   <div class="foot"><span>Calendário de postagens · 2/2</span><span>09</span></div>
@@ -1443,7 +1678,7 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
     <div class="card"><div class="ct">Post 30 · Oferta · <code>TRIADE</code></div>
       <p style="margin-bottom:9px"><b style="color:#fff">0–4s:</b> "Eu abri hoje uma coisa que eu devia ter feito há um ano."</p>
       <p style="margin-bottom:9px"><b style="color:#fff">4–14s:</b> "Nas últimas semanas eu mostrei aqui o painel, o print e a conta zerada. Vocês pediram o passo a passo."</p>
-      <p style="margin-bottom:9px"><b style="color:#fff">14–30s:</b> "Chama A Tríade. É viralização, TikTok Shop e monetização em dólar montados juntos, do jeito que eu faço."</p>
+      <p style="margin-bottom:9px"><b style="color:#fff">14–30s:</b> "Chama Dólar Extra. É a Tríade inteira montada junto — viralização, TikTok Shop e dólar — do jeito que eu faço."</p>
       <p style="margin-bottom:9px"><b style="color:#fff">30–42s:</b> "Custa menos que um delivery de fim de semana. É de propósito — eu quero que você entre, execute e me mande o print."</p>
       <p><b style="color:var(--red)">CTA:</b> "Comenta TRIADE que eu te mando o link e a condição de abertura no direct."</p></div>
   </div>
@@ -1545,7 +1780,7 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
 </section><div class="sn">Peça 02 · 15 / 15</div></div>
   </div></div>
   <section class="sec-head" id="parte-03">
-    <div class="k">Peça 03 de 03</div>
+    <div class="k">Peça 03 de 04</div>
     <h2>Linha Editorial de <em>Comunicação</em></h2>
     <div class="c">19 slides · posicionamento, voz, vocabulário e arquitetura do perfil</div>
   </section>
@@ -1689,7 +1924,7 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
   <div class="rule"></div>
   <div class="lead">Marca que dura cria vocabulário próprio. Quando o seguidor repete o termo do expert para explicar a ideia a outra pessoa, o posicionamento passou a viver fora do perfil — e é isso que nenhum concorrente consegue copiar.</div>
   <div class="g3" style="margin-top:22px">
-    <div class="card"><div class="ct">Conceito central</div><h4>A Tríade</h4><p>As três engrenagens que só funcionam juntas: viralização, TikTok Shop e monetização em dólar. É o nome do produto e o nome da ideia — os dois precisam ser a mesma coisa.</p></div>
+    <div class="card"><div class="ct">Conceito central</div><h4>A Tríade</h4><p>As três engrenagens que só funcionam juntas: viralização, TikTok Shop e monetização em dólar. É o nome do <b>método</b> — o produto se chama Dólar Extra. Método e produto separados criam duas frentes de memória em vez de uma.</p></div>
     <div class="card"><div class="ct">Nome da dor</div><h4>Vaidade cara</h4><p>Views que não passam por mecanismo de monetização. Dá nome ao problema do avatar e transforma um sentimento vago em algo que ele consegue apontar.</p></div>
     <div class="card"><div class="ct">Nome do ritual</div><h4>Painel aberto</h4><p>O ato de gravar a tela do dashboard sem corte. Vira substantivo: "isso aqui é painel aberto, não é print recortado."</p></div>
     <div class="card cy"><div class="ct">Nome do público</div><h4>Criador invisível</h4><p>Quem quer monetizar e não quer aparecer. Nomear esse público faz ele se reconhecer — e nenhum concorrente está falando com ele hoje.</p></div>
@@ -1943,6 +2178,320 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
   </div>
   <div class="foot"><span>Linha Editorial · Caio Ronconi</span><span>18</span></div>
 </section><div class="sn">Peça 03 · 19 / 19</div></div>
+  </div></div>
+  <section class="sec-head" id="parte-04">
+    <div class="k">Peça 04 de 04</div>
+    <h2>Arquitetura Curricular do <em>Dólar Extra</em></h2>
+    <div class="c">17 slides · módulos, aulas, sprint, ganchos de back-end e fronteira de produto</div>
+  </section>
+  <div class="deck"><div class="stage">
+<div class="wrap"><section class="slide dark cover">
+  <div class="kick">Arquitetura de produto · Produto de entrada · 2026</div>
+  <h1>Dentro do<br><em class="s">Dólar Extra</em>.</h1>
+  <div class="sub">A arquitetura curricular completa do produto de entrada: os seis módulos, cada aula com seu objetivo, o Sprint dos 7 Dias, onde cada gancho de back-end é plantado — e, principalmente, o que fica de fora de propósito.</div>
+  <div class="meta">
+    <div><span>Projeto</span><strong>Caio Ronconi · Esteira TikTok</strong></div>
+    <div><span>Documento</span><strong>Arquitetura Curricular · Dólar Extra</strong></div>
+    <div><span>Preparado por</span><strong>Felipe Cavalcanti</strong></div>
+    <div><span>Peça</span><strong>04 de 04</strong></div>
+  </div>
+  <div class="foot"><span>Arquitetura Curricular · Dólar Extra</span><span>Caio Ronconi · 2026</span></div>
+</section><div class="sn">Peça 04 · 01 / 17</div></div>
+<div class="wrap"><section class="slide dark">
+  <div class="s-head"><div class="tag">O princípio</div><div class="num">01</div></div>
+  <div class="body-wrap" style="justify-content:center">
+    <div class="big" style="max-width:1040px">A entrada entrega o<br><em class="s">resultado</em>.<br>O caro entrega a <em class="s">máquina</em>.</div>
+    <div class="lead" style="margin-top:34px; max-width:920px">Essa fronteira governa cada decisão deste documento. O aluno de R$197 precisa fazer a primeira venda e sentir o mecanismo funcionando na mão dele. Ele não pode aprender a escalar, a terceirizar nem a operar. <strong>O ponto exato é: provou que funciona, mas com uma única perna.</strong></div>
+    <div class="g3" style="margin-top:34px">
+      <div class="card cy"><div class="ct">Se errar para menos</div><h4>Ele sai sem ter feito nada</h4><p>Sem primeira venda, sem print, sem sensação de mecanismo. O resultado é reembolso, e nenhum depoimento para municiar a página do back-end.</p></div>
+      <div class="card cy"><div class="ct">Se errar para mais</div><h4>Ele sai sabendo montar operação</h4><p>Se aprender a escalar, terceirizar e operar por R$197, o back-end morre. Não existe motivo para subir de degrau quando o degrau de baixo já entregou tudo.</p></div>
+      <div class="card red"><div class="ct">O ponto exato</div><h4>Provou, com uma perna só</h4><p>Primeira venda feita, mecanismo sentido na mão, teto visível no horizonte. É esse desconforto produtivo que faz o Workshop A Máquina fazer sentido sozinho.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>O princípio que governa tudo</span><span>01</span></div>
+</section><div class="sn">Peça 04 · 02 / 17</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Decisão estratégica</div><div class="num">02</div></div>
+  <h2 class="t sm">O teto de R$7 a 10 mil é <em class="s red">ativo de venda</em>, não limitação.</h2>
+  <div class="rule"></div>
+  <div class="lead">Num nicho onde ninguém declara limite, declarar o seu é a jogada mais anti-guru disponível — e a que mais protege o negócio. O teto precisa ser dito em voz alta dentro do produto, na aula 1.5.</div>
+  <div class="card hi" style="margin-top:22px; padding:26px 30px">
+    <div class="ct" style="color:var(--cyan)">Como o Caio diz, em voz alta</div>
+    <div style="font-family:var(--serif); font-style:italic; font-size:25px; line-height:1.42; color:#fff; max-width:930px">"Esse método aqui te leva até uns sete, dez mil por mês. Com uma perna só. Passou disso, você não precisa de mais tática — você precisa de máquina. E máquina é outra conversa, que eu vou ter com você lá na frente."</div>
+  </div>
+  <div class="g3" style="margin-top:22px">
+    <div class="card"><div class="ct">Efeito 01</div><h4>Torna a promessa crível</h4><p>Todo concorrente promete infinito. Um número com teto soa como relato de quem já fez, não como isca de quem precisa vender.</p></div>
+    <div class="card"><div class="ct">Efeito 02</div><h4>Pré-vende sem pitch</h4><p>O aluno passa a esperar o próximo degrau desde a primeira semana. Quando o Workshop chegar, ele já foi anunciado por uma limitação honesta.</p></div>
+    <div class="card"><div class="ct">Efeito 03</div><h4>Blinda contra reembolso</h4><p>Entregou exatamente o que prometeu, incluindo onde para. Reembolso nasce de expectativa desalinhada, quase nunca de conteúdo ruim.</p></div>
+  </div>
+  <div class="foot"><span>O teto declarado</span><span>02</span></div>
+</section><div class="sn">Peça 04 · 03 / 17</div></div>
+<div class="wrap"><section class="slide panel">
+  <div class="s-head"><div class="tag">Visão geral</div><div class="num">03</div></div>
+  <h2 class="t sm" style="color:#fff">Seis módulos, <em class="s red">30 aulas</em>, uma promessa.</h2>
+  <div class="rule"></div>
+  <table style="margin-top:18px">
+    <tr><th style="width:70px">Módulo</th><th style="width:220px">Nome</th><th style="width:290px">Objetivo do módulo</th><th style="width:90px">Aulas</th><th style="width:90px">Duração</th><th>Função no negócio</th></tr>
+    <tr><td><b>0</b></td><td><b>A Porta</b></td><td>Reconquistar a compra, capturar o diagnóstico e entregar o plano</td><td>3</td><td>~10 min</td><td>Anti-reembolso e segmentação</td></tr>
+    <tr><td><b>1</b></td><td><b>A Tríade</b></td><td>Instalar a crença no mecanismo, não ensinar tática</td><td>5</td><td>~23 min</td><td>Faz os módulos seguintes parecerem um sistema, não três cursos</td></tr>
+    <tr><td><b>2</b></td><td><b>Viralização</b></td><td>Primeiro vídeo publicado com estrutura correta</td><td>6</td><td>~35 min</td><td>Gera a matéria-prima do pilar seguinte</td></tr>
+    <tr><td><b>3</b></td><td><b>Lives e TikTok Shop</b></td><td><b>Primeira venda</b></td><td>7</td><td>~50 min</td><td>O único módulo que põe dinheiro na conta. Dinheiro na conta compra o back-end</td></tr>
+    <tr><td><b>4</b></td><td><b>Monetização em Dólar</b></td><td>Habilitar a fonte que paga em moeda forte</td><td>5</td><td>~25 min</td><td>Fecha a Tríade e valida a tese do posicionamento</td></tr>
+    <tr><td><b>5</b></td><td><b>Sprint dos 7 Dias</b></td><td>Transformar biblioteca de aulas em plano executável</td><td>4</td><td>~20 min</td><td>Produz o depoimento que municia a página do back-end</td></tr>
+  </table>
+  <div class="g3" style="margin-top:24px">
+    <div class="card"><div class="stat">2h45</div><div class="stat-l">de vídeo no total — terminável em poucos dias, como um produto de entrada precisa ser</div></div>
+    <div class="card"><div class="stat">7</div><div class="stat-l">dias até a primeira venda, com uma tarefa única por dia</div></div>
+    <div class="card cy"><div class="stat">1</div><div class="stat-l">perna. O aluno sai com o mecanismo provado e o teto visível</div></div>
+  </div>
+  <div class="foot"><span>Mapa geral</span><span>03</span></div>
+</section><div class="sn">Peça 04 · 04 / 17</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Módulo 0 · obrigatório, bloqueia o resto</div><div class="num">04</div></div>
+  <h2 class="t sm">A Porta: os <em class="s red">dez minutos</em> que decidem o reembolso.</h2>
+  <div class="rule"></div>
+  <div class="lead">O aluno acabou de gastar R$197 e o cérebro dele já está procurando motivo para se arrepender. Este módulo existe para reconquistar a compra antes que isso aconteça — e é liberado com bloqueio: <strong>nada abre até ele terminar.</strong></div>
+  <div class="g3" style="margin-top:22px">
+    <div class="card"><div class="ct">Aula 0.1 · 3–4 min</div><h4>Bem-vindo — e a regra da casa</h4>
+      <ul><li><b>Reconquista:</b> o Caio diz com nome e sobrenome o que acontece com a vida dele nos próximos 30 dias</li><li><b>A regra:</b> "isso aqui não é curso pra assistir, é pra executar"</li><li><b>A ação:</b> preencher o Diagnóstico de Partida, antes de qualquer aula</li><li><b>O destrave:</b> o diagnóstico libera os bônus, incluindo o Workshop A Máquina</li></ul></div>
+    <div class="card cy"><div class="ct">Aula 0.2 · 2 min</div><h4>Entre na Sala Dólar Extra</h4>
+      <ul><li>Grupo exclusivo de alunos no WhatsApp</li><li>Onde saem materiais novos, atualizações e presentes ao longo do treinamento</li><li>"Quem tá na Sala sempre sai na frente"</li><li><b>Função real:</b> é o canal de convite para o Workshop e a vitrine dos prints de aluno</li></ul></div>
+    <div class="card"><div class="ct">Aula 0.3 · 5 min</div><h4>O mapa dos 7 dias</h4>
+      <ul><li>Ordem de execução e expectativa calibrada</li><li>O compromisso: "no sétimo dia você tem seu primeiro vídeo no ar e sua primeira estrutura de venda montada"</li><li><b>Entrega aqui o checklist imprimível</b> — não no Módulo 5</li><li>Promessa pequena, específica, cumprível</li></ul></div>
+  </div>
+  <div class="note" style="margin-top:20px"><b>Ajuste recomendado em relação ao rascunho:</b> o checklist imprimível estava previsto como aula 5.2, no fim do produto. Mas o relógio dos sete dias começa a correr no dia 1 — se o aluno só recebe o plano depois de quatro módulos, a promessa e o caminho de consumo brigam entre si. <b>O checklist desce para a 0.3; o Módulo 5 mantém o aprofundamento.</b></div>
+  <div class="foot"><span>Módulo 0 · A Porta</span><span>04</span></div>
+</section><div class="sn">Peça 04 · 05 / 17</div></div>
+<div class="wrap"><section class="slide dark">
+  <div class="s-head"><div class="tag">Módulo 0 · a peça mais subestimada</div><div class="num">05</div></div>
+  <h2 class="t sm" style="color:#fff">O <em class="s red">Diagnóstico de Partida</em> não é ficha de inscrição.</h2>
+  <div class="rule"></div>
+  <div class="lead">Ninguém preenche ficha com atenção. Todo mundo preenche um diagnóstico que decide por onde começar. O nome muda a taxa de preenchimento, e a taxa de preenchimento decide se você consegue segmentar a base inteira do produto.</div>
+  <div class="g2" style="margin-top:22px; gap:26px">
+    <div class="card"><div class="ct">O que ele pergunta</div><h4>Seis perguntas, dois minutos</h4>
+      <ul><li>Você já postou vídeo no TikTok? Quantos?</li><li>Quantos seguidores você tem hoje?</li><li>Você já ganhou algum dinheiro com conteúdo?</li><li>Você pretende aparecer nos vídeos?</li><li>Quanto tempo por dia você consegue dedicar?</li><li>Qual o seu objetivo de renda nos próximos 90 dias?</li></ul></div>
+    <div class="card cy"><div class="ct">O que ele devolve</div><h4>Três funções ao mesmo tempo</h4>
+      <ul><li><b>Para o aluno:</b> por qual pilar ele começa — economiza semanas e evita o caminho genérico</li><li><b>Para a operação:</b> tag de avatar aplicada no dia 1, alimentando toda a comunicação seguinte</li><li><b>Para o back-end:</b> identifica quem já fatura e tem perfil de Operação Dólar ou Estrutura, antes mesmo do Workshop</li><li><b>Para o produto:</b> justifica os bônus como recompensa por uma ação, não como brinde</li></ul></div>
+  </div>
+  <div class="note cy" style="margin-top:20px"><b>Por que ele bloqueia o resto:</b> um diagnóstico opcional é preenchido por 20% da base; um diagnóstico que destrava o acesso é preenchido por mais de 80%. Como ele é a única fonte de segmentação do produto inteiro, essa diferença define se a esteira consegue falar com cada avatar ou se trata todo mundo igual.</div>
+  <div class="foot"><span>Diagnóstico de Partida</span><span>05</span></div>
+</section><div class="sn">Peça 04 · 06 / 17</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Módulo 1 · instalação do mecanismo</div><div class="num">06</div></div>
+  <h2 class="t sm">A Tríade: este módulo não ensina tática, <em class="s red">instala crença</em>.</h2>
+  <div class="rule"></div>
+  <div class="lead">Se o aluno não comprar a lógica da Tríade aqui, ele consome os módulos seguintes como se fossem três cursos soltos. <strong>É este módulo que transforma três assuntos em um sistema</strong> — e sistema é o que justifica o preço e prepara o degrau seguinte.</div>
+  <table style="margin-top:20px">
+    <tr><th style="width:70px">Aula</th><th style="width:330px">Título</th><th style="width:80px">Duração</th><th>O que ela precisa fazer</th></tr>
+    <tr><td><b>1.1</b></td><td><b>Por que viralizar sozinho não paga ninguém</b></td><td>4 min</td><td>Nomeia a dor com o léxico próprio: vaidade cara. O aluno precisa reconhecer a própria história aqui.</td></tr>
+    <tr><td><b>1.2</b></td><td><b>As três engrenagens e por que só funcionam juntas</b></td><td>6 min</td><td>O coração do módulo. Viralização sem Shop é vaidade; Shop sem viralização é vitrine vazia; as duas sem dólar é escolher moeda fraca.</td></tr>
+    <tr><td><b>1.3</b></td><td><b>A conta que muda tudo: recebe em dólar, gasta em real</b></td><td>4 min</td><td>Instala a tese cambial com número real e cotação do dia na tela.</td></tr>
+    <tr><td><b>1.4</b></td><td><b>As três mentiras que te contaram sobre viralizar</b></td><td>6 min</td><td>Quebra antecipada de objeção: "meu nicho não dá", "eu não tenho carisma", "já é tarde demais".</td></tr>
+    <tr><td><b>1.5</b></td><td><b>O teto honesto deste método</b></td><td>3 min</td><td>Declara R$7 a 10 mil por mês com uma perna só. Primeira semente do back-end, plantada como honestidade.</td></tr>
+  </table>
+  <div class="note" style="margin-top:20px"><b>Cuidado de escopo neste módulo:</b> a tentação é explicar como cada engrenagem funciona. Não é aqui. O Módulo 1 entrega <b>o quê</b> e <b>por quê</b>; os módulos 2, 3 e 4 entregam o <b>como</b>. Antecipar o como aqui esvazia os três módulos seguintes e faz o produto parecer repetitivo.</div>
+  <div class="foot"><span>Módulo 1 · A Tríade</span><span>06</span></div>
+</section><div class="sn">Peça 04 · 07 / 17</div></div>
+<div class="wrap"><section class="slide panel">
+  <div class="s-head"><div class="tag">Módulo 2 · Pilar 1</div><div class="num">07</div></div>
+  <h2 class="t sm" style="color:#fff">Viralização — objetivo: <em class="s red">primeiro vídeo no ar</em>.</h2>
+  <div class="rule"></div>
+  <table style="margin-top:18px">
+    <tr><th style="width:70px">Aula</th><th style="width:330px">Título</th><th style="width:80px">Duração</th><th>Observação de escopo</th></tr>
+    <tr><td><b>2.1</b></td><td><b>O que a plataforma recompensa — e o que ela ignora</b></td><td>6 min</td><td>Nunca "segredo do algoritmo". Linguagem de recompensa, não de brecha.</td></tr>
+    <tr><td><b>2.2</b></td><td><b>Anatomia do vídeo que retém: os três segundos</b></td><td>7 min</td><td>Gancho, tensão, entrega. Com exemplo real do próprio perfil na tela.</td></tr>
+    <tr><td><b>2.3</b></td><td><b>Como identificar a trend antes de estourar</b></td><td>7 min</td><td><b>Versão manual e simplificada.</b> O sistema completo de antecipação é o Radar de Trends.</td></tr>
+    <tr><td><b>2.4</b></td><td><b>Como gravar sem aparecer</b></td><td>6 min</td><td>A rota do criador invisível. É o que faz metade da base se reconhecer no produto.</td></tr>
+    <tr><td><b>2.5</b></td><td><b>Publicar: horário, legenda e as duas primeiras horas</b></td><td>5 min</td><td>Inclui a tarefa de responder comentário na janela crítica.</td></tr>
+    <tr><td><b>2.6</b></td><td><b>Os erros que matam a entrega</b></td><td>4 min</td><td>Fecha o módulo reduzindo a chance de o primeiro vídeo floppar por besteira.</td></tr>
+  </table>
+  <div class="g2" style="margin-top:22px">
+    <div class="note cy" style="margin:0"><b>Onde este módulo planta back-end:</b> a aula 2.3 entrega o método manual de identificar trend — funciona, dá trabalho e depende do aluno olhar todo dia. É exatamente a dor que o <b>Radar de Trends</b> resolve por R$497/mês. A semente é plantada sem uma linha de pitch.</div>
+    <div class="note" style="margin:0"><b>O que fica de fora:</b> produção em lote, banco de roteiros, múltiplas contas, contratação de editor. Tudo isso é operação — e operação é o território do Operação Dólar.</div>
+  </div>
+  <div class="foot"><span>Módulo 2 · Viralização</span><span>07</span></div>
+</section><div class="sn">Peça 04 · 08 / 17</div></div>
+<div class="wrap"><section class="slide dark">
+  <div class="s-head"><div class="tag">Módulo 3 · Pilar 2 · o módulo mais importante</div><div class="num">08</div></div>
+  <h2 class="t sm" style="color:#fff">Lives e TikTok Shop — objetivo: <em class="s red">primeira venda</em>.</h2>
+  <div class="rule"></div>
+  <div class="lead">É o único módulo que coloca dinheiro na conta do aluno, e <strong>dinheiro na conta é o que compra o back-end</strong>. Se algum módulo merecer mais tempo de gravação, produção e revisão, é este.</div>
+  <table style="margin-top:18px">
+    <tr><th style="width:64px">Aula</th><th style="width:320px">Título</th><th style="width:74px">Duração</th><th>Observação de escopo</th></tr>
+    <tr><td><b>3.1</b></td><td><b>Por que a venda acontece aqui, e não no feed</b></td><td>5 min</td><td>Reconecta com o Módulo 1: a engrenagem 2 é a que fatura.</td></tr>
+    <tr><td><b>3.2</b></td><td><b>Configurando o TikTok Shop, passo a passo na tela</b></td><td>10 min</td><td>Gravação de tela, sem corte. É a aula mais assistida do produto.</td></tr>
+    <tr><td><b>3.3</b></td><td><b>Como escolher o primeiro produto para vender</b></td><td>7 min</td><td>Ensina o <b>critério</b>, não entrega catálogo curado. Catálogo é entrega recorrente.</td></tr>
+    <tr><td><b>3.4</b></td><td><b>A live que vende: a estrutura de quatro blocos</b></td><td>9 min</td><td>Versão essencial. A estrutura avançada e o roteiro completo ficam no Operação Dólar.</td></tr>
+    <tr><td><b>3.5</b></td><td><b>Live sem aparecer: o setup básico com I.A.</b></td><td>8 min</td><td><b>Versão introdutória, uma ferramenta só.</b> O sistema completo é o Curso de Lives com I.A., dentro do Operação Dólar.</td></tr>
+    <tr><td><b>3.6</b></td><td><b>Sua primeira venda: o roteiro dos 60 minutos</b></td><td>7 min</td><td>O aluno executa junto. É a aula que produz o print.</td></tr>
+    <tr><td><b>3.7</b></td><td><b>O que fazer depois da primeira venda</b></td><td>4 min</td><td>Manda mandar o print na Sala. Alimenta prova social e depoimento ao mesmo tempo.</td></tr>
+  </table>
+  <div class="note" style="margin-top:18px"><b>A decisão mais delicada do produto inteiro está na 3.5.</b> Live com I.A. é simultaneamente o gancho mais forte do avatar invisível e o núcleo do Operação Dólar. Entregar demais aqui mata o back-end; entregar de menos deixa metade da base sem o caminho dela. <b>A régua: uma ferramenta, um caso, execução manual.</b> O que fica para o Operação Dólar é o sistema — múltiplas ferramentas, automação e operação sem presença.</div>
+  <div class="foot"><span>Módulo 3 · Lives e TikTok Shop</span><span>08</span></div>
+</section><div class="sn">Peça 04 · 09 / 17</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Módulo 4 · Pilar 3</div><div class="num">09</div></div>
+  <h2 class="t sm">Monetização em Dólar — objetivo: <em class="s red">fechar a Tríade</em>.</h2>
+  <div class="rule"></div>
+  <div class="lead">Este é o módulo que valida a tese do posicionamento inteiro. É aqui que a frase "recebe em dólar, gasta em real" deixa de ser argumento de venda e vira configuração na conta do aluno.</div>
+  <table style="margin-top:20px">
+    <tr><th style="width:70px">Aula</th><th style="width:340px">Título</th><th style="width:80px">Duração</th><th>Observação de escopo</th></tr>
+    <tr><td><b>4.1</b></td><td><b>Onde o dólar aparece: os programas que pagam direto</b></td><td>6 min</td><td>O mapa das fontes, sem promessa de valor. Primeira pessoa e passado, sempre.</td></tr>
+    <tr><td><b>4.2</b></td><td><b>Requisitos e como habilitar</b></td><td>6 min</td><td>Gravação de tela. Inclui o que fazer se ainda não atingiu o requisito.</td></tr>
+    <tr><td><b>4.3</b></td><td><b>Como o cálculo funciona — e por que o número varia</b></td><td>5 min</td><td>Gerenciar expectativa aqui evita frustração na semana 2.</td></tr>
+    <tr><td><b>4.4</b></td><td><b>Saque, conversão e o que ninguém te conta sobre a taxa</b></td><td>5 min</td><td>A parte prática que quase nenhum concorrente cobre. Diferenciação barata.</td></tr>
+    <tr><td><b>4.5</b></td><td><b>Painel aberto: eu abro o meu e explico linha por linha</b></td><td>6 min</td><td>A aula que converte descrença em confiança. Sem corte, com data na tela.</td></tr>
+  </table>
+  <div class="note" style="margin-top:20px"><b>Nota de conformidade:</b> este é o módulo de maior risco de linguagem. Nenhuma aula pode prometer valor, prazo ou renda garantida. A régua da linha editorial vale integralmente aqui — resultado sempre em primeira pessoa e no passado, e o teto de R$7 a 10 mil repetido sempre que um número aparecer.</div>
+  <div class="foot"><span>Módulo 4 · Monetização em Dólar</span><span>09</span></div>
+</section><div class="sn">Peça 04 · 10 / 17</div></div>
+<div class="wrap"><section class="slide panel">
+  <div class="s-head"><div class="tag">Módulo 5 · o sistema operacional</div><div class="num">10</div></div>
+  <h2 class="t sm" style="color:#fff">O Sprint dos 7 Dias transforma biblioteca em <em class="s red">plano</em>.</h2>
+  <div class="rule"></div>
+  <div class="lead">É este módulo que produz depoimento em sete dias — e depoimento em sete dias é o que munia a página de vendas do back-end. Sem ele, o produto vira uma coleção de aulas boas que ninguém termina.</div>
+  <div class="g4" style="margin-top:22px">
+    <div class="card"><div class="ct">Aula 5.1</div><h4>O plano dia a dia</h4><p>Do dia 1 ao dia 7, com <b>uma tarefa única por dia</b>. Nunca duas — duas tarefas por dia é como se abandona um sprint.</p></div>
+    <div class="card"><div class="ct">Aula 5.2</div><h4>Checklist imprimível</h4><p>Entregue lá no Módulo 0, e reforçado aqui. O aluno já executa com ele na mão desde o dia 1.</p></div>
+    <div class="card cy"><div class="ct">Aula 5.3</div><h4>Quando não funcionar na primeira semana</h4><p>A aula que mais protege contra reembolso. Antecipa a frustração, dá o diagnóstico e devolve o aluno ao plano.</p></div>
+    <div class="card red"><div class="ct">Aula 5.4</div><h4>O próximo passo</h4><p>A ponte para o Workshop A Máquina. Não é pitch: é a consequência natural do teto declarado lá na 1.5.</p></div>
+  </div>
+  <table style="margin-top:22px">
+    <tr><th style="width:70px">Dia</th><th style="width:330px">A tarefa única do dia</th><th style="width:150px">Módulo de apoio</th><th>Resultado ao fim do dia</th></tr>
+    <tr><td><b>Dia 1</b></td><td>Preencher o Diagnóstico e preparar a conta: nome, bio e direção</td><td>Módulo 0</td><td>Perfil pronto para receber o primeiro vídeo</td></tr>
+    <tr><td><b>Dia 2</b></td><td>Escolher a trend e gravar três vídeos de uma vez</td><td>Módulo 2</td><td>Material na mão, sem depender de inspiração diária</td></tr>
+    <tr><td><b>Dia 3</b></td><td>Publicar o primeiro e responder comentário por duas horas</td><td>Módulo 2</td><td><b>Primeiro vídeo no ar</b></td></tr>
+    <tr><td><b>Dia 4</b></td><td>Configurar o TikTok Shop, seguindo a gravação de tela</td><td>Módulo 3</td><td>Estrutura de venda montada</td></tr>
+    <tr><td><b>Dia 5</b></td><td>Escolher o primeiro produto e montar o roteiro da live</td><td>Módulo 3</td><td>Live pronta para acontecer</td></tr>
+    <tr><td><b>Dia 6</b></td><td>Fazer a primeira live, com o roteiro dos 60 minutos</td><td>Módulo 3</td><td><b>Primeira venda</b></td></tr>
+    <tr><td><b>Dia 7</b></td><td>Habilitar a monetização e mandar o print na Sala</td><td>Módulo 4</td><td>Tríade fechada · depoimento gerado</td></tr>
+  </table>
+  <div class="foot"><span>Módulo 5 · Sprint dos 7 Dias</span><span>10</span></div>
+</section><div class="sn">Peça 04 · 11 / 17</div></div>
+<div class="wrap"><section class="slide dark">
+  <div class="s-head"><div class="tag">O detalhe que paga o back-end</div><div class="num">11</div></div>
+  <div class="body-wrap" style="justify-content:center">
+    <div class="big" style="max-width:1010px">A tarefa do dia 7<br>não é para o aluno.<br><span style="color:#6b6b72">É para </span><em class="s">você</em><span style="color:#6b6b72">.</span></div>
+    <div class="lead" style="margin-top:32px; max-width:900px">"Manda o print na Sala" parece encerramento simpático de curso. Não é. É o mecanismo que resolve, de uma vez, os três problemas mais caros da operação inteira — e ele custa uma frase.</div>
+    <div class="g3" style="margin-top:34px">
+      <div class="card cy"><div class="ct">Problema 01</div><h4>Prova social não existia</h4><p>A peça 01 aponta o banco de prova como dependência bloqueante do orgânico. O dia 7 transforma cada aluno numa fonte contínua de print — resultado pequeno, recente e replicável, que é o que mais converte.</p></div>
+      <div class="card cy"><div class="ct">Problema 02</div><h4>A página do back-end nasce vazia</h4><p>Depoimento em sete dias é exatamente o ativo que a página do Operação Dólar precisa. O produto de entrada passa a fabricar o argumento de venda do produto seguinte.</p></div>
+      <div class="card cy"><div class="ct">Problema 03</div><h4>A Sala morre sozinha</h4><p>Comunidade sem ritual esvazia em três semanas. Um print novo por dia é o conteúdo que mantém o grupo vivo — e grupo vivo é o canal de convite do Workshop.</p></div>
+    </div>
+    <div class="note" style="margin-top:26px"><b>Uma pendência que precisa ser resolvida antes do lançamento:</b> autorização de uso. O print do aluno só vira conteúdo público com consentimento registrado por escrito. Isso precisa estar nos termos do produto e ser reforçado na 3.7 — <b>uma linha no checkout resolve; um pedido depois do fato quase sempre não.</b></div>
+  </div>
+  <div class="foot"><span>A tarefa do dia 7</span><span>11</span></div>
+</section><div class="sn">Peça 04 · 12 / 17</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Arquitetura de ascensão</div><div class="num">12</div></div>
+  <h2 class="t sm">Onde cada <em class="s red">gancho de back-end</em> é plantado.</h2>
+  <div class="rule"></div>
+  <div class="lead">Nenhum deles é pitch. Todos nascem de uma limitação honesta do produto de entrada — que é exatamente o que faz o degrau seguinte parecer necessário em vez de vendido.</div>
+  <table style="margin-top:20px">
+    <tr><th style="width:90px">Onde</th><th style="width:280px">A limitação declarada</th><th style="width:190px">Para onde aponta</th><th>Como soa na aula</th></tr>
+    <tr><td><b>1.5</b></td><td>O teto de R$7 a 10 mil com uma perna só</td><td><b>Workshop A Máquina</b></td><td>"Passou disso, você precisa de máquina — e máquina é outra conversa."</td></tr>
+    <tr><td><b>2.3</b></td><td>Achar trend na mão dá trabalho e depende de olhar todo dia</td><td><b>Radar de Trends</b><br>R$497/mês</td><td>"É assim que eu fazia antes. Hoje eu tenho um jeito de saber antes — mas isso é outro assunto."</td></tr>
+    <tr><td><b>3.4</b></td><td>A estrutura de live entregue é a essencial, não a completa</td><td><b>Operação Dólar</b></td><td>"Essa aqui é a versão que funciona sozinha. Tem uma versão que escala, e ela exige estrutura."</td></tr>
+    <tr><td><b>3.5</b></td><td>Uma ferramenta de I.A., execução manual, sem automação</td><td><b>Operação Dólar</b></td><td>"Dá pra rodar assim. Rodar sem você é outro nível de configuração."</td></tr>
+    <tr><td><b>5.3</b></td><td>Constância no braço é o que quebra a maioria na semana 2</td><td><b>Operação Dólar</b></td><td>"Se você travou aqui, o problema não é técnica — é sistema."</td></tr>
+    <tr><td><b>5.4</b></td><td>O produto acabou; a operação nem começou</td><td><b>Workshop A Máquina</b></td><td>Convite direto, com data marcada. É o único momento de venda explícita do produto.</td></tr>
+  </table>
+  <div class="note" style="margin-top:20px"><b>A regra que mantém isso honesto:</b> um gancho só pode existir onde a limitação é <b>real</b>. Se o produto de entrada esconde algo que caberia nele sem quebrar a fronteira do resultado, o aluno percebe — e a percepção de retenção proposital é o que mais destrói confiança em esteira. <b>Cada gancho desta tabela corresponde a algo que genuinamente exige operação, não a informação represada.</b></div>
+  <div class="foot"><span>Ganchos de back-end</span><span>12</span></div>
+</section><div class="sn">Peça 04 · 13 / 17</div></div>
+<div class="wrap"><section class="slide panel">
+  <div class="s-head"><div class="tag">A fronteira</div><div class="num">13</div></div>
+  <h2 class="t sm" style="color:#fff">O que entra, e o que fica de fora <em class="s red">de propósito</em>.</h2>
+  <div class="rule"></div>
+  <div class="split" style="margin-top:20px">
+    <div class="box ok"><h4>Dólar Extra · o resultado</h4>
+      <li>As três engrenagens explicadas e conectadas</li>
+      <li>Primeiro vídeo publicado com estrutura correta</li>
+      <li>Identificação manual de trend</li>
+      <li>Configuração completa do TikTok Shop</li>
+      <li>Estrutura essencial de live que vende</li>
+      <li>Setup básico de live com I.A., uma ferramenta</li>
+      <li>Habilitação e saque da monetização em dólar</li>
+      <li>Plano de sete dias até a primeira venda</li>
+    </div>
+    <div class="box no"><h4>Operação Dólar · a máquina</h4>
+      <li>Escala: múltiplas contas, múltiplos nichos, produção em lote</li>
+      <li>Terceirização: contratar e treinar editor, roteirista e operador de live</li>
+      <li>O sistema completo de lives com I.A., rodando sem presença</li>
+      <li>O Hack do TikTok Shop na versão avançada</li>
+      <li>Ferramentas completas e automações</li>
+      <li>Leitura de dados e otimização por métrica</li>
+      <li>Comunidade e acompanhamento continuado</li>
+      <li>Tudo que exige <b>operação</b>, não execução individual</li>
+    </div>
+  </div>
+  <div class="note" style="margin-top:20px"><b>O teste de fronteira, aula por aula:</b> antes de gravar qualquer aula, a pergunta é uma só — <b>isso ensina a fazer, ou ensina a operar?</b> Ensinar a fazer é Dólar Extra. Ensinar a operar é Operação Dólar. A aula que ficar em cima do muro vai para o produto de cima, sempre: é mais barato deixar valor na mesa do que matar o back-end.</div>
+  <div class="foot"><span>A fronteira entre os produtos</span><span>13</span></div>
+</section><div class="sn">Peça 04 · 14 / 17</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Proteção</div><div class="num">14</div></div>
+  <h2 class="t sm">A arquitetura <em class="s red">anti-reembolso</em>, camada por camada.</h2>
+  <div class="rule"></div>
+  <div class="lead">Reembolso quase nunca nasce de conteúdo ruim — nasce de expectativa desalinhada e de aluno que não começou. Sete decisões deste documento atacam exatamente isso.</div>
+  <table style="margin-top:20px">
+    <tr><th style="width:130px">Camada</th><th style="width:300px">O que ela faz</th><th>Por que funciona</th></tr>
+    <tr><td><b>Módulo 0 bloqueante</b></td><td>Nada abre até a Porta ser concluída</td><td>Elimina o aluno que compra e nunca entra — o perfil que mais pede reembolso.</td></tr>
+    <tr><td><b>Promessa pequena</b></td><td>Sete dias, vídeo no ar e estrutura montada</td><td>Específica e cumprível. Promessa grande gera compra fácil e reembolso fácil.</td></tr>
+    <tr><td><b>Diagnóstico de Partida</b></td><td>Personaliza o ponto de entrada</td><td>Aluno que começa pelo pilar certo sente progresso na primeira semana.</td></tr>
+    <tr><td><b>Uma tarefa por dia</b></td><td>Reduz a decisão diária a uma só</td><td>Abandono nasce de excesso de opção, não de falta de vontade.</td></tr>
+    <tr><td><b>Teto declarado</b></td><td>Diz onde o método para</td><td>Entregou o que prometeu, incluindo o limite. Não sobra espaço para "prometeu mais".</td></tr>
+    <tr><td><b>Aula 5.3</b></td><td>Antecipa a frustração da semana 2</td><td>Quem tem o problema previsto pelo professor culpa a execução, não o produto.</td></tr>
+    <tr><td><b>Sala Dólar Extra</b></td><td>Print de outros alunos circulando</td><td>Prova viva de que funciona derruba o impulso de desistir.</td></tr>
+  </table>
+  <div class="foot"><span>Arquitetura anti-reembolso</span><span>14</span></div>
+</section><div class="sn">Peça 04 · 15 / 17</div></div>
+<div class="wrap"><section class="slide dark">
+  <div class="s-head"><div class="tag">Execução</div><div class="num">15</div></div>
+  <h2 class="t sm" style="color:#fff">Especificação de <em class="s red">produção</em>.</h2>
+  <div class="rule"></div>
+  <div class="g2" style="margin-top:20px; gap:26px">
+    <div class="card"><div class="ct">Ordem de gravação recomendada</div><h4>Não é a ordem dos módulos</h4>
+      <ul style="margin-top:10px">
+        <li><b>1º · Módulo 3</b> — o mais importante e o mais difícil. Grava com energia cheia e sobra tempo para refazer.</li>
+        <li><b>2º · Módulo 2</b> — alimenta o Módulo 3 e define a linguagem técnica do produto.</li>
+        <li><b>3º · Módulo 4</b> — depende de painel e cotação; grava junto de uma Quinta do Painel.</li>
+        <li><b>4º · Módulo 1</b> — grava depois de saber exatamente o que os outros entregam, para não prometer errado.</li>
+        <li><b>5º · Módulo 5</b> — o sprint só pode ser escrito depois que o conteúdo existe.</li>
+        <li><b>6º · Módulo 0</b> — por último, sempre. A Porta promete o que os outros cinco entregam.</li>
+      </ul></div>
+    <div class="card cy"><div class="ct">Padrão técnico</div><h4>O que mantém o produto barato de fazer</h4>
+      <ul style="margin-top:10px">
+        <li>Aula de no máximo 10 minutos. Passou disso, vira duas.</li>
+        <li>Gravação de tela sempre que houver configuração — sem corte, com data visível.</li>
+        <li>Consumo no celular: fonte grande, vertical quando possível, legenda queimada.</li>
+        <li>Zero produção cara. Aula que parece cara envelhece rápido e trava atualização.</li>
+        <li>Cada aula termina com uma ação, nunca com resumo.</li>
+        <li>Toda menção a valor repete o teto e usa primeira pessoa no passado.</li>
+      </ul></div>
+  </div>
+  <div class="g3" style="margin-top:22px">
+    <div class="card"><div class="stat">30</div><div class="stat-l">aulas no total</div></div>
+    <div class="card"><div class="stat">2h45</div><div class="stat-l">de vídeo — terminável em poucos dias</div></div>
+    <div class="card"><div class="stat">6</div><div class="stat-l">blocos de gravação, um por módulo</div></div>
+  </div>
+  <div class="foot"><span>Especificação de produção</span><span>15</span></div>
+</section><div class="sn">Peça 04 · 16 / 17</div></div>
+<div class="wrap"><section class="slide dark">
+  <div class="s-head"><div class="tag">Próximos passos</div><div class="num">16</div></div>
+  <h2 class="t sm" style="color:#fff">O que falta para <em class="s red">gravar</em>.</h2>
+  <div class="rule"></div>
+  <div class="lead">A arquitetura está fechada e a fronteira está definida. O que falta é a matéria-prima que só o Caio tem — e sem ela nenhuma aula pode ser roteirizada com honestidade.</div>
+  <div class="g3" style="margin-top:24px; gap:14px 16px">
+    <div class="card"><div class="ct">Destrava 01 · crítico</div><h4>A metodologia da trend</h4><p>Como ele identifica uma trend antes de estourar, por qual sinal e com quanta antecedência. É o conteúdo da 2.3 e o núcleo do Radar de Trends — a fronteira entre os dois precisa ser decidida por ele.</p></div>
+    <div class="card"><div class="ct">Destrava 02 · crítico</div><h4>O que é o Hack do TikTok Shop</h4><p>Precisa estar claro o que é o hack para decidir quanto da configuração cabe na 3.2 sem esvaziar o Operação Dólar.</p></div>
+    <div class="card"><div class="ct">Destrava 03 · crítico</div><h4>O limite da live com I.A.</h4><p>Quais ferramentas, qual o setup mínimo que funciona e o que exige sistema. Define a 3.5, a aula de fronteira mais delicada do produto.</p></div>
+    <div class="card"><div class="ct">Destrava 04</div><h4>O teto é mesmo R$7 a 10 mil?</h4><p>O número vai ser dito em voz alta e repetido. Precisa ser o número real que ele sustenta em qualquer auditoria.</p></div>
+    <div class="card"><div class="ct">Destrava 05</div><h4>Painel para a aula 4.5</h4><p>Qual painel pode ser aberto na tela, com qual nível de detalhe e o que precisa ser borrado.</p></div>
+    <div class="card red"><div class="ct">Destrava 06</div><h4>Autorização de print no checkout</h4><p>A cláusula de uso de imagem e resultado precisa entrar nos termos antes da primeira venda. Depois do fato é tarde.</p></div>
+  </div>
+  <div class="note cy" style="margin-top:22px">Este documento fecha a série: <b>peça 01</b> define o conteúdo orgânico, <b>peça 02</b> a captura via ManyChat, <b>peça 03</b> a linha editorial de comunicação e <b>peça 04</b> a arquitetura do produto que tudo isso vende.</div>
+  <div class="foot"><span>Próximos passos</span><span>16</span></div>
+</section><div class="sn">Peça 04 · 17 / 17</div></div>
   </div></div>
 </main>
 
