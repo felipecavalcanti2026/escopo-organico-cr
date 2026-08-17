@@ -12,7 +12,7 @@
 html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
 
 :root{
-  --ink:#0a0a0b; --panel:#141416; --panel2:#1a1a1e;
+  --ink:#0a0a0b; --panel2:#1a1a1e;
   --cream:#f5f5f4; --white:#ffffff;
   --red:#fe2c55; --cyan:#25f4ee; --teal:#0fb9b2;
   --ink-soft:#3d3d42; --mut:#8a8a90; --mut2:#6b6b72;
@@ -47,83 +47,85 @@ em.s{ font-family:var(--serif); font-style:italic; font-weight:400; letter-spaci
   border-top:1px solid var(--line-light); padding-top:11px; font-weight:500; }
 .slide.dark .foot{ border-top-color:var(--line-dark); color:#6b6b72; }
 
-h2.t{ font-size:40px; margin-bottom:11px; color:var(--ink); }
+h2.t{ font-size:40px; margin-bottom:10px; color:var(--ink); }
 .slide.dark h2.t{ color:var(--white); }
-h2.t.sm{ font-size:34px; }
-.lead{ font-size:14.5px; line-height:1.55; color:var(--ink-soft); max-width:1040px; }
+.lead{ font-size:14.5px; line-height:1.55; color:var(--ink-soft); max-width:960px; }
 .slide.dark .lead{ color:#a9a9b0; }
-.lead strong{ font-weight:600; color:var(--ink); }
-.slide.dark .lead strong{ color:var(--white); }
-.rule{ width:56px; height:2px; background:var(--red); margin:12px 0 14px; }
-.body-wrap{ flex:1; display:flex; flex-direction:column; min-height:0; gap:12px; }
+.lead b{ font-weight:600; color:var(--ink); }
+.slide.dark .lead b{ color:var(--white); }
+.rule{ width:56px; height:2px; background:var(--red); margin:12px 0 0; }
 
-.g2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-.g2u{ display:grid; grid-template-columns:1.15fr 1fr; gap:16px; }
-.g3{ display:grid; grid-template-columns:repeat(3,1fr); gap:13px; }
+/* estrutura fixa: bloco principal no topo, nota sempre colada no rodape */
+.body-wrap{ flex:1; display:flex; flex-direction:column; justify-content:space-between;
+  min-height:0; padding-top:16px; gap:16px; }
 
-.card{ background:var(--white); border:1px solid var(--line-light); border-radius:11px; padding:15px 16px 16px; }
+.g2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:stretch; }
+.g3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; align-items:stretch; }
+
+.card{ background:var(--white); border:1px solid var(--line-light); border-radius:11px;
+  padding:16px 18px 17px; display:flex; flex-direction:column; }
 .slide.dark .card{ background:var(--panel2); border-color:var(--line-dark); }
 .card .ct{ font-family:var(--display); font-size:9.5px; font-weight:700; letter-spacing:.16em;
-  text-transform:uppercase; color:var(--red); margin-bottom:9px; }
-.card h4{ font-size:17.5px; margin-bottom:8px; letter-spacing:-.02em; color:var(--ink); }
+  text-transform:uppercase; color:var(--red); margin-bottom:10px; }
+.slide.dark .card .ct{ color:var(--cyan); }
+.card h4{ font-size:19px; margin-bottom:4px; color:var(--ink); }
 .slide.dark .card h4{ color:var(--white); }
-.card p{ font-size:13px; line-height:1.54; color:var(--ink-soft); }
+.card .sub{ font-family:var(--display); font-size:12px; font-weight:600; color:var(--red); margin-bottom:10px; }
+.card p{ font-size:13px; line-height:1.55; color:var(--ink-soft); }
 .slide.dark .card p{ color:#a9a9b0; }
 .card p b{ color:var(--ink); font-weight:600; }
 .slide.dark .card p b{ color:var(--white); }
-.card ul{ list-style:none; margin-top:9px; }
-.card ul li{ font-size:12.8px; line-height:1.46; color:var(--ink-soft); padding-left:14px; position:relative; margin-bottom:6px; }
-.card ul li::before{ content:''; position:absolute; left:0; top:7px; width:4px; height:4px; border-radius:50%; background:var(--red); }
+.card ul{ list-style:none; }
+.card ul li{ font-size:13px; line-height:1.45; color:var(--ink-soft); padding-left:15px;
+  position:relative; margin-bottom:8px; }
+.card ul li:last-child{ margin-bottom:0; }
+.card ul li::before{ content:''; position:absolute; left:0; top:7px; width:4px; height:4px;
+  border-radius:50%; background:var(--red); }
 .slide.dark .card ul li{ color:#a9a9b0; }
+.slide.dark .card ul li::before{ background:var(--cyan); }
 .card ul li b{ color:var(--ink); font-weight:600; }
 .slide.dark .card ul li b{ color:var(--white); }
-.card.cy .ct{ color:var(--cyan); } .card.cy ul li::before{ background:var(--cyan); }
-.card.hi{ background:var(--ink); color:var(--cream); border-color:transparent; }
-.card.hi .ct{ color:var(--cyan); } .card.hi h4{ color:var(--white); } .card.hi p{ color:#a9a9b0; }
-.card.hi p b{ color:var(--white); } .card.hi ul li{ color:#a9a9b0; } .card.hi ul li b{ color:var(--white); }
-.card.hi ul li::before{ background:var(--cyan); }
+.card ul li .d{ font-family:var(--display); font-weight:700; color:var(--red); font-size:12px;
+  display:inline-block; width:52px; }
+.slide.dark .card ul li .d{ color:var(--cyan); }
+.card.hi{ background:var(--ink); border-color:transparent; }
+.card.hi .ct{ color:var(--cyan); } .card.hi h4{ color:var(--white); }
+.card.hi p{ color:#a9a9b0; } .card.hi p b{ color:var(--white); }
+.card.hi ul li{ color:#a9a9b0; } .card.hi ul li b{ color:var(--white); }
+.card.hi ul li::before{ background:var(--cyan); } .card.hi ul li .d{ color:var(--cyan); }
 
-table{ width:100%; border-collapse:collapse; font-size:12.8px; }
+table{ width:100%; border-collapse:collapse; font-size:13.4px; }
 th{ font-family:var(--display); font-size:9px; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
-  color:var(--mut2); text-align:left; padding:0 10px 7px 0; border-bottom:1px solid var(--line-light); }
-td{ padding:7.5px 10px 7.5px 0; border-bottom:1px solid rgba(0,0,0,.06); line-height:1.42; color:var(--ink-soft);
-  vertical-align:top; }
+  color:var(--mut2); text-align:left; padding:0 14px 8px 0; border-bottom:1px solid var(--line-light); }
+th:last-child, td:last-child{ padding-right:0; }
+td{ padding:11px 14px 11px 0; border-bottom:1px solid rgba(0,0,0,.06); line-height:1.45;
+  color:var(--ink-soft); vertical-align:top; }
+tr:last-child td{ border-bottom:none; }
 td b{ color:var(--ink); font-weight:600; }
-td.k{ font-family:var(--display); font-weight:700; color:var(--red); font-size:11.5px; letter-spacing:.03em; white-space:nowrap; }
+td.k{ font-family:var(--display); font-weight:700; color:var(--red); font-size:12.5px; white-space:nowrap; }
 td.wk{ font-family:var(--display); font-weight:600; color:var(--mut2); font-size:10px; letter-spacing:.1em;
   text-transform:uppercase; white-space:nowrap; }
 .slide.dark th{ color:var(--mut); border-bottom-color:var(--line-dark); }
 .slide.dark td{ color:#a9a9b0; border-bottom-color:rgba(255,255,255,.07); }
 .slide.dark td b{ color:var(--white); }
 .slide.dark td.k{ color:var(--cyan); }
-tr.mark td{ background:rgba(254,44,85,.06); }
-.slide.dark tr.mark td{ background:rgba(37,244,238,.07); }
 
-.note{ font-size:12.6px; line-height:1.5; color:var(--ink-soft); background:rgba(254,44,85,.07);
-  border-left:2px solid var(--red); padding:11px 15px; border-radius:0 8px 8px 0; }
+/* tabela que ocupa a altura livre: as linhas se distribuem em vez de deixar buraco */
+table.fill{ flex:1; }
+table.fill td{ vertical-align:middle; padding-top:14px; padding-bottom:14px; }
+
+.note{ font-size:13px; line-height:1.5; color:var(--ink-soft); background:rgba(254,44,85,.07);
+  border-left:2px solid var(--red); padding:12px 16px; border-radius:0 8px 8px 0; }
 .note b{ color:var(--ink); font-weight:600; }
 .slide.dark .note{ color:#a9a9b0; background:rgba(37,244,238,.07); border-left-color:var(--cyan); }
 .slide.dark .note b{ color:var(--white); }
 
 .pill{ display:inline-block; font-family:var(--display); font-size:8.5px; font-weight:700; letter-spacing:.11em;
-  text-transform:uppercase; padding:3px 8px; border-radius:99px; white-space:nowrap; }
+  text-transform:uppercase; padding:3px 9px; border-radius:99px; white-space:nowrap; }
 .p-red{ background:rgba(254,44,85,.13); color:var(--red); }
 .p-cy{ background:rgba(37,244,238,.16); color:var(--teal); }
-.p-ink{ background:rgba(0,0,0,.07); color:var(--ink-soft); }
-.slide.dark .p-ink{ background:rgba(255,255,255,.09); color:#a9a9b0; }
+.slide.dark .p-red{ background:rgba(254,44,85,.18); color:#ff6b8a; }
 .slide.dark .p-cy{ background:rgba(37,244,238,.14); color:var(--cyan); }
-
-/* fases */
-.fases{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-radius:11px; overflow:hidden; }
-.fase{ background:var(--panel2); border:1px solid var(--line-dark); border-right:none; padding:16px 18px 18px; }
-.fase:last-child{ border-right:1px solid var(--line-dark); }
-.fase .fn{ font-family:var(--display); font-size:9.5px; font-weight:700; letter-spacing:.16em;
-  text-transform:uppercase; color:var(--cyan); margin-bottom:7px; }
-.fase h4{ font-size:20px; color:var(--white); margin-bottom:5px; }
-.fase .fd{ font-family:var(--display); font-size:12px; color:var(--red); font-weight:600; margin-bottom:9px; }
-.fase p{ font-size:12.6px; line-height:1.5; color:#a9a9b0; }
-.fase.on{ background:var(--red); border-color:transparent; }
-.fase.on .fn{ color:rgba(255,255,255,.7); } .fase.on .fd{ color:#fff; } .fase.on p{ color:rgba(255,255,255,.92); }
 
 
 /* ============================================================
@@ -255,251 +257,273 @@ body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; backgroun
   <section class="hero">
     <div class="eyebrow">Plano de lançamento · 08 a 28 de agosto de 2026</div>
     <h1>Vinte dias até o <span class="ab" data-w="lançamento">lançamento</span>.</h1>
-    <p>Três fases, seis marcos travados e onze entregas acrescentadas porque, sem elas, algum marco não fecha. Traz o dia a dia das três fases, a trilha de conteúdo que roda em paralelo, as três correntes de dependência que repassam atraso direto para o dia 28, as cinco decisões ainda abertas e o roteiro do dia da abertura hora a hora.</p>
-    <div class="hero-meta"><div><span>Projeto</span><strong>Caio Ronconi · Dólar Extra</strong></div><div><span>Preparado por</span><strong>Felipe Cavalcanti</strong></div><div><span>Documento</span><strong>7 páginas</strong></div><div><span>Lançamento</span><strong>Sexta, 28/08</strong></div></div>
+    <p>Onze dias, três fases. Seus seis marcos mantidos e onze entregas acrescentadas porque, sem elas, algum marco não fecha. Traz o dia a dia de cada fase, o conteúdo que roda em paralelo, as três correntes que repassam atraso direto para o dia 28 e as quatro decisões ainda abertas.</p>
+    <div class="hero-meta"><div><span>Projeto</span><strong>Caio Ronconi · Dólar Extra</strong></div><div><span>Preparado por</span><strong>Felipe Cavalcanti</strong></div><div><span>Documento</span><strong>6 páginas</strong></div><div><span>Lançamento</span><strong>Sexta, 28/08</strong></div></div>
   </section>
   <div class="chapters">
     <a class="ch" href="#cronograma">
       <div class="ch-n">O plano</div>
       <h2>Pré-produção, produção e montagem — dia a dia</h2>
-      <p>Cada entrega com data, dia da semana e a marca de quem definiu: o que você travou e o que eu sugeri. Contrato antecipado para o dia 13 e a BM dividida em duas partes, pelos motivos explicados na primeira página.</p>
-      <ul><li>3 fases</li><li>20 dias</li><li>17 entregas</li></ul>
+      <p>Cada entrega com data, dia da semana e a marca de quem definiu: o que você travou e o que eu sugeri. Do contrato de hoje até a abertura do link na sexta 28.</p>
+      <ul><li>3 fases</li><li>11 dias</li><li>17 entregas</li></ul>
     </a>
     <a class="ch cy" href="#cronograma">
       <div class="ch-n">O que protege a data</div>
       <h2>As correntes em série, as decisões abertas e o dia D</h2>
-      <p>Onde o atraso é repassado inteiro para o dia 28, o que se corta primeiro se algo der errado, o que o teste de compra precisa provar e a semana de carrinho até 03/09.</p>
-      <ul><li>3 correntes</li><li>5 decisões</li><li>Dia D hora a hora</li></ul>
+      <p>Onde o atraso é repassado inteiro para o dia 28, o que o teste de compra precisa provar e o que se corta primeiro se algo apertar.</p>
+      <ul><li>3 correntes</li><li>4 decisões</li><li>Ordem de corte</li></ul>
     </a>
   </div>
   <section class="sec-head" id="cronograma">
     <div class="k">Plano de lançamento</div>
     <h2>Cronograma de <em>Lançamento</em></h2>
-    <div class="c">7 páginas · fases, trilha de conteúdo, riscos e dia da abertura</div>
+    <div class="c">6 páginas · fases, conteúdo diário, riscos e decisões</div>
   </section>
   <div class="deck"><div class="stage">
 <div class="wrap"><section class="slide dark">
-  <div class="s-head"><div class="tag">01 · Visão geral</div><div class="num">CRONOGRAMA / 07</div></div>
-  <h2 class="t">Onze dias até o <em class="s red">lançamento</em>.</h2>
-  <p class="lead">Hoje é segunda, 17 de agosto — o dia do contrato e o dia da primeira gravação. Daqui até a sexta 28 são <strong>onze dias corridos e nenhuma semana de sobra</strong>. Seus seis marcos estão todos mantidos; acrescentei onze entregas que não estavam na lista e sem as quais algum marco seu não fecha.</p>
+  <div class="s-head"><div class="tag">01 · Visão geral</div><div class="num">CRONOGRAMA / 06</div></div>
+  <h2 class="t">Onze dias. <em class="s red">Três fases.</em></h2>
+  <p class="lead">Hoje é segunda, 17/08. O lançamento é sexta, 28/08. <b>Seus seis marcos estão mantidos.</b> Acrescentei onze entregas que faltavam para eles fecharem.</p>
   <div class="rule"></div>
   <div class="body-wrap">
-    <div class="fases">
-      <div class="fase on">
-        <div class="fn">Fase 1</div>
-        <h4>Produção e infraestrutura</h4>
-        <div class="fd">17 a 20/08 · 4 dias</div>
-        <p>Contrato, gravação, BM, preço e checkout. Tudo o que é pré-requisito de outra coisa acontece aqui — é a fase que decide se o dia 28 é real.</p>
+    <div class="g3">
+      <div class="card">
+        <div class="ct">Fase 1</div>
+        <h4>Produção e estrutura</h4>
+        <div class="sub">17 a 20/08 · 4 dias</div>
+        <p>Contrato, gravação, BM, preço e checkout. Quase tudo aqui é pré-requisito de outra coisa.</p>
       </div>
-      <div class="fase">
-        <div class="fn">Fase 2</div>
-        <h4>Fechamento do produto</h4>
-        <div class="fd">21 a 24/08 · 4 dias</div>
-        <p>Curso pronto na sexta, VSL gravada no sábado, domingo de colchão e os materiais complementares na segunda. Aqui o produto passa a existir por inteiro.</p>
+      <div class="card">
+        <div class="ct">Fase 2</div>
+        <h4>Produto pronto</h4>
+        <div class="sub">21 a 24/08 · 4 dias</div>
+        <p>Curso editado, VSL gravada, materiais complementares. Domingo 23 é o único colchão do plano.</p>
       </div>
-      <div class="fase">
-        <div class="fn">Fase 3</div>
-        <h4>Montagem e lançamento</h4>
-        <div class="fd">25 a 28/08 · 4 dias</div>
-        <p>Nada novo é criado: página, área de membros, grupo e teste de compra real. Lançamento na sexta 28, com live de abertura às 20h.</p>
+      <div class="card">
+        <div class="ct">Fase 3</div>
+        <h4>Montagem e abertura</h4>
+        <div class="sub">25 a 28/08 · 4 dias</div>
+        <p>Página, área de membros, teste de compra. Sexta 28 o link abre e o anúncio liga.</p>
       </div>
     </div>
-    <div class="g2u">
+    <div class="g2">
       <div class="card">
-        <div class="ct">Os seis marcos que você travou — todos mantidos</div>
-        <table style="margin-top:-2px">
-          <tr><td class="k">17/08</td><td>Assinatura do contrato</td><td class="k">21/08</td><td>Edição concluída, curso pronto</td></tr>
-          <tr><td class="k">17/08</td><td>Gravação do curso</td><td class="k">25/08</td><td>VSL entregue <span class="pill p-cy">após 21</span></td></tr>
-          <tr><td class="k">18/08</td><td>Configuração da BM</td><td class="k">28/08</td><td><b>Lançamento</b></td></tr>
-        </table>
+        <div class="ct">Seus seis marcos</div>
+        <ul>
+          <li><span class="d">17/08</span> Assinatura do contrato</li>
+          <li><span class="d">17/08</span> Gravação do curso</li>
+          <li><span class="d">18/08</span> Configuração da BM</li>
+          <li><span class="d">21/08</span> Edição concluída, curso pronto</li>
+          <li><span class="d">25/08</span> VSL entregue</li>
+          <li><span class="d">28/08</span> <b>Lançamento</b></li>
+        </ul>
       </div>
       <div class="card hi">
-        <div class="ct">O que eu acrescentei — e o alerta de hoje</div>
+        <div class="ct">As onze entregas que acrescentei</div>
         <ul>
-          <li><b>Onze entregas novas:</b> preço final, checkout, ManyChat, roteiro e edição da VSL, materiais do Sprint, área de membros, página, grupo, prova social, teste de compra e aquecimento.</li>
-          <li><b>A BM é o maior risco do plano.</b> Domínio e pixel entram em fila de revisão do Meta — de 1 a 3 dias úteis, com chance real de reprovar. Com onze dias, uma reprovação não tem para onde ir. <b>Se der para adiantar para hoje em vez de amanhã, adianta.</b></li>
+          <li><span class="d">18/08</span> Escolha da plataforma de checkout</li>
+          <li><span class="d">19/08</span> Preço final · ManyChat na ferramenta · roteiro da VSL</li>
+          <li><span class="d">20/08</span> Checkout no ar</li>
+          <li><span class="d">24/08</span> Diagnóstico de Partida · Sprint dos 7 Dias</li>
+          <li><span class="d">26/08</span> Página de vendas · área de membros · grupo</li>
+          <li><span class="d">27/08</span> Teste de compra real</li>
         </ul>
       </div>
     </div>
+    <div class="note"><b>Prova social e conteúdo diário começam hoje.</b> Não têm data porque são todo dia, do dia 17 ao 28.</div>
   </div>
-  <div class="foot"><span>Caio Ronconi · Cronograma de lançamento · 17 a 28/08/2026</span><span>01</span></div>
-</section><div class="sn">Cronograma · 01 / 07</div></div>
+  <div class="foot"><span>Caio Ronconi · Cronograma · 17 a 28/08/2026</span><span>01</span></div>
+</section><div class="sn">Cronograma · 01 / 06</div></div>
 <div class="wrap"><section class="slide">
-  <div class="s-head"><div class="tag">02 · Fase 1 · produção e infraestrutura</div><div class="num">CRONOGRAMA / 07</div></div>
-  <h2 class="t">17 a 20/08 — a fase que decide o dia 28.</h2>
-  <p class="lead">Quatro dias em que quase tudo é pré-requisito de outra coisa. <strong>Se um único item desta página escorregar, ele empurra o lançamento junto</strong> — não existe folga antes do domingo 23.</p>
+  <div class="s-head"><div class="tag">02 · Fase 1</div><div class="num">CRONOGRAMA / 06</div></div>
+  <h2 class="t">17 a 20/08 — produção e estrutura.</h2>
+  <p class="lead">Quatro dias em que quase tudo destrava outra coisa. <b>Um item que escorregar aqui empurra o dia 28 junto.</b></p>
   <div class="rule"></div>
   <div class="body-wrap">
-    <table>
-      <tr><th style="width:74px">Data</th><th style="width:52px">Dia</th><th>Entrega</th><th style="width:104px">Origem</th></tr>
-      <tr class="mark"><td class="k">17/08</td><td class="wk">Seg</td><td><b>Assinatura do contrato</b> — e, na mesma canetada, termos de uso e política de reembolso.</td><td><span class="pill p-red">definido</span></td></tr>
-      <tr class="mark"><td class="k">17/08</td><td class="wk">Seg</td><td><b>Gravação do curso — dia 1.</b> Testar luz, áudio e teleprompter <b>antes</b> de rodar a primeira aula. Módulo 3 primeiro, Módulo 0 por último.</td><td><span class="pill p-red">definido</span></td></tr>
-      <tr><td class="k">17/08</td><td class="wk">Seg</td><td><b>Começa hoje:</b> o conteúdo diário e a coleta de prova social — print autorizado de todo mundo que já ganhou alguma coisa. É o ativo que mais demora a juntar.</td><td><span class="pill p-cy">sugerido</span></td></tr>
-      <tr class="mark"><td class="k">18/08</td><td class="wk">Ter</td><td><b>BM:</b> conta de anúncio criada, domínio verificado e pixel instalado disparando. <b>Quanto antes entrar na fila do Meta, melhor.</b></td><td><span class="pill p-red">definido</span></td></tr>
-      <tr><td class="k">18/08</td><td class="wk">Ter</td><td>Gravação — dia 2, com o que não coube na segunda. <b>Decidir a plataforma de checkout</b>, que trava o dia 20.</td><td><span class="pill p-cy">sugerido</span></td></tr>
-      <tr><td class="k">19/08</td><td class="wk">Qua</td><td><b>Preço final fechado</b> (hoje aberto entre R$ 197 e R$ 297) · <b>ManyChat construído na ferramenta</b>: 7 palavras-chave, fluxos e a sequência D0–D7 · <b>roteiro da VSL escrito e aprovado</b>.</td><td><span class="pill p-cy">sugerido</span></td></tr>
-      <tr><td class="k">20/08</td><td class="wk">Qui</td><td><b>Checkout no ar:</b> produto, preço, parcelamento, order bump e garantia · <b>BM parte 2:</b> evento de compra configurado e pixel testado ponta a ponta.</td><td><span class="pill p-cy">sugerido</span></td></tr>
+    <table class="fill">
+      <tr><th style="width:78px">Data</th><th style="width:54px">Dia</th><th>Entrega</th><th style="width:100px">Origem</th></tr>
+      <tr>
+        <td class="k">17/08</td><td class="wk">Seg</td>
+        <td><b>Contrato assinado</b> — junto com termos de uso e política de reembolso.<br>
+        <b>Gravação dia 1.</b> Testar luz, áudio e teleprompter antes de rodar. Módulo 3 primeiro, Módulo 0 por último.</td>
+        <td><span class="pill p-red">definido</span></td>
+      </tr>
+      <tr>
+        <td class="k">18/08</td><td class="wk">Ter</td>
+        <td><b>BM configurada:</b> conta de anúncio, domínio verificado e pixel instalado.<br>
+        <b>Gravação dia 2</b> com o que não coube. Escolher a plataforma de checkout.</td>
+        <td><span class="pill p-red">definido</span></td>
+      </tr>
+      <tr>
+        <td class="k">19/08</td><td class="wk">Qua</td>
+        <td><b>Preço final fechado.</b> Hoje está entre R$ 197 e R$ 297.<br>
+        <b>ManyChat construído</b> na ferramenta: 7 palavras-chave, fluxos e sequência D0–D7. <b>Roteiro da VSL escrito.</b></td>
+        <td><span class="pill p-cy">sugerido</span></td>
+      </tr>
+      <tr>
+        <td class="k">20/08</td><td class="wk">Qui</td>
+        <td><b>Checkout no ar:</b> produto, preço, parcelamento e garantia.<br>
+        <b>Evento de compra</b> configurado na BM e pixel testado ponta a ponta.</td>
+        <td><span class="pill p-cy">sugerido</span></td>
+      </tr>
     </table>
-    <div class="note"><b>O gargalo desta fase não é a gravação, é o preço.</b> Ele trava o checkout, a VSL e a página de vendas ao mesmo tempo — três coisas em série. É uma decisão, não uma execução: não leva uma hora e destrava três dias de trabalho. <b>Sem o número fechado no dia 19, os dias 20, 22 e 26 não acontecem.</b></div>
+    <div class="note"><b>O gargalo desta fase é o preço, não a gravação.</b> Ele trava o checkout, a VSL e a página. É uma decisão de uma hora que destrava três dias de trabalho.</div>
   </div>
-  <div class="foot"><span>Caio Ronconi · Cronograma de lançamento · 17 a 28/08/2026</span><span>02</span></div>
-</section><div class="sn">Cronograma · 02 / 07</div></div>
+  <div class="foot"><span>Caio Ronconi · Cronograma · 17 a 28/08/2026</span><span>02</span></div>
+</section><div class="sn">Cronograma · 02 / 06</div></div>
 <div class="wrap"><section class="slide">
-  <div class="s-head"><div class="tag">03 · Fase 2 · fechamento do produto</div><div class="num">CRONOGRAMA / 07</div></div>
-  <h2 class="t">21 a 24/08 — o produto passa a existir inteiro.</h2>
-  <p class="lead">O curso fica pronto na sexta e a VSL é gravada no sábado, com o produto já editado para mostrar por dentro. <strong>O domingo 23 é o único colchão do plano inteiro</strong> — é o que separa um atraso de um lançamento adiado.</p>
+  <div class="s-head"><div class="tag">03 · Fase 2</div><div class="num">CRONOGRAMA / 06</div></div>
+  <h2 class="t">21 a 24/08 — produto pronto.</h2>
+  <p class="lead">O curso fica pronto na sexta. A VSL é gravada no sábado, depois do curso, para poder <b>mostrar o produto por dentro</b> em vez de só prometer.</p>
   <div class="rule"></div>
   <div class="body-wrap">
-    <table>
-      <tr><th style="width:74px">Data</th><th style="width:52px">Dia</th><th>Entrega</th><th style="width:104px">Origem</th></tr>
-      <tr class="mark"><td class="k">21/08</td><td class="wk">Sex</td><td><b>Edição concluída — curso pronto.</b> As 30 aulas exportadas, nomeadas e conferidas. 6 módulos, 2h45 de material.</td><td><span class="pill p-red">definido</span></td></tr>
-      <tr><td class="k">22/08</td><td class="wk">Sáb</td><td><b>Gravação da VSL</b>, com o roteiro aprovado no dia 19 e o curso pronto para aparecer por dentro na tela.</td><td><span class="pill p-cy">sugerido</span></td></tr>
-      <tr><td class="k">23/08</td><td class="wk">Dom</td><td><b>Colchão. Não marcar nada.</b> Se a semana atrasou, é aqui que se recupera sem mexer no dia 28.</td><td><span class="pill p-cy">sugerido</span></td></tr>
-      <tr><td class="k">24/08</td><td class="wk">Seg</td><td><b>Materiais complementares prontos:</b> a ficha do Diagnóstico de Partida (módulo 0) e o Sprint dos 7 Dias, com uma tarefa por dia · <b>decidir onde o curso vai morar</b> — qual área de membros.</td><td><span class="pill p-cy">sugerido</span></td></tr>
+    <table class="fill">
+      <tr><th style="width:78px">Data</th><th style="width:54px">Dia</th><th>Entrega</th><th style="width:100px">Origem</th></tr>
+      <tr>
+        <td class="k">21/08</td><td class="wk">Sex</td>
+        <td><b>Edição concluída, curso pronto.</b> As 30 aulas exportadas, nomeadas e conferidas. Seis módulos, 2h45.</td>
+        <td><span class="pill p-red">definido</span></td>
+      </tr>
+      <tr>
+        <td class="k">22/08</td><td class="wk">Sáb</td>
+        <td><b>Gravação da VSL</b>, com o roteiro aprovado na quarta e o curso pronto para aparecer na tela.</td>
+        <td><span class="pill p-cy">sugerido</span></td>
+      </tr>
+      <tr>
+        <td class="k">23/08</td><td class="wk">Dom</td>
+        <td><b>Colchão. Não marcar nada.</b> Se a semana atrasou, é aqui que se recupera sem mexer no dia 28. Se não atrasou, vira gravação em bloco do conteúdo da última semana.</td>
+        <td><span class="pill p-cy">sugerido</span></td>
+      </tr>
+      <tr>
+        <td class="k">24/08</td><td class="wk">Seg</td>
+        <td><b>Materiais complementares:</b> ficha do Diagnóstico de Partida e o Sprint dos 7 Dias, com uma tarefa por dia. Decidir onde o curso vai morar.</td>
+        <td><span class="pill p-cy">sugerido</span></td>
+      </tr>
     </table>
-    <div class="g2">
-      <div class="card">
-        <div class="ct">Por que a VSL é gravada depois do curso</div>
-        <p>Porque ela precisa <b>mostrar o produto por dentro</b> — tela do módulo, aula rodando, a ficha do Diagnóstico. VSL gravada antes do curso só consegue prometer; gravada depois, ela demonstra. É a diferença entre "vai ter" e "olha aqui".</p>
-      </div>
-      <div class="card cy">
-        <div class="ct">O que fazer com o colchão se ele sobrar</div>
-        <p>Se o domingo 23 chegar sem atraso para cobrir, ele não vira folga — vira <b>gravação em bloco do conteúdo da semana do lançamento</b>. A semana de 24 a 28 é a mais cheia do plano, e é exatamente nela que ninguém tem tempo de gravar story.</p>
-      </div>
-    </div>
+    <div class="note"><b>É o único colchão do plano inteiro.</b> Onze dias não comportam dois. Por isso nada entra no domingo 23 até a sexta 21 fechar.</div>
   </div>
-  <div class="foot"><span>Caio Ronconi · Cronograma de lançamento · 17 a 28/08/2026</span><span>03</span></div>
-</section><div class="sn">Cronograma · 03 / 07</div></div>
+  <div class="foot"><span>Caio Ronconi · Cronograma · 17 a 28/08/2026</span><span>03</span></div>
+</section><div class="sn">Cronograma · 03 / 06</div></div>
 <div class="wrap"><section class="slide">
-  <div class="s-head"><div class="tag">04 · Fase 3 · montagem e lançamento</div><div class="num">CRONOGRAMA / 07</div></div>
-  <h2 class="t">25 a 28/08 — montar a loja e abrir a porta.</h2>
-  <p class="lead">Nada novo é criado aqui: tudo já existe e só precisa ser montado. <strong>A única entrega que não pode falhar é o teste de compra do dia 27</strong> — é a diferença entre descobrir um erro de checkout na véspera ou na frente de mil pessoas.</p>
+  <div class="s-head"><div class="tag">04 · Fase 3</div><div class="num">CRONOGRAMA / 06</div></div>
+  <h2 class="t">25 a 28/08 — montagem e abertura.</h2>
+  <p class="lead">Nada novo é criado aqui. Tudo já existe e só precisa ser montado. <b>A entrega que não pode falhar é o teste de compra do dia 27.</b></p>
   <div class="rule"></div>
   <div class="body-wrap">
-    <table>
-      <tr><th style="width:74px">Data</th><th style="width:52px">Dia</th><th>Entrega</th><th style="width:104px">Origem</th></tr>
-      <tr class="mark"><td class="k">25/08</td><td class="wk">Ter</td><td><b>VSL entregue e aprovada.</b> Editada, com legenda, testada no celular sem som.</td><td><span class="pill p-red">definido</span></td></tr>
-      <tr><td class="k">26/08</td><td class="wk">Qua</td><td><b>Página de vendas no ar</b> com a VSL · <b>área de membros</b> com as 30 aulas subidas · <b>grupo Sala Dólar Extra</b> criado com as regras fixadas · <b>decidir a janela de carrinho</b>.</td><td><span class="pill p-cy">sugerido</span></td></tr>
-      <tr class="mark"><td class="k">27/08</td><td class="wk">Qui</td><td><b>Teste de compra ponta a ponta:</b> comprar de verdade, com cartão real, receber o acesso, entrar no grupo — e só então reembolsar. <b>Aquecimento final:</b> anúncio da abertura e da live de sexta.</td><td><span class="pill p-cy">sugerido</span></td></tr>
-      <tr class="mark"><td class="k">28/08</td><td class="wk">Sex</td><td><b>LANÇAMENTO.</b> Abertura de manhã sem link, Reels ao meio-dia, DM à tarde e live de abertura às 20h.</td><td><span class="pill p-red">definido</span></td></tr>
+    <table class="fill">
+      <tr><th style="width:78px">Data</th><th style="width:54px">Dia</th><th>Entrega</th><th style="width:100px">Origem</th></tr>
+      <tr>
+        <td class="k">25/08</td><td class="wk">Ter</td>
+        <td><b>VSL entregue e aprovada.</b> Editada, com legenda, testada no celular sem som.</td>
+        <td><span class="pill p-red">definido</span></td>
+      </tr>
+      <tr>
+        <td class="k">26/08</td><td class="wk">Qua</td>
+        <td><b>Página de vendas no ar</b> com a VSL. <b>Área de membros</b> com as 30 aulas subidas. <b>Grupo Sala Dólar Extra</b> criado.</td>
+        <td><span class="pill p-cy">sugerido</span></td>
+      </tr>
+      <tr>
+        <td class="k">27/08</td><td class="wk">Qui</td>
+        <td><b>Teste de compra ponta a ponta:</b> comprar de verdade com cartão real, receber o acesso, entrar no grupo — e só então reembolsar. Campanhas montadas e pausadas, prontas para ligar.</td>
+        <td><span class="pill p-cy">sugerido</span></td>
+      </tr>
+      <tr>
+        <td class="k">28/08</td><td class="wk">Sex</td>
+        <td><b>Lançamento.</b> O link abre, os anúncios ligam, o Reels de abertura vai ao ar e a DM sai para a base já separada por nível.</td>
+        <td><span class="pill p-red">definido</span></td>
+      </tr>
     </table>
-    <div class="g2">
-      <div class="card">
-        <div class="ct">O que o teste de compra tem que provar</div>
-        <ul>
-          <li>O pagamento aprova e o e-mail de acesso chega em menos de 2 minutos</li>
-          <li>O login na área de membros funciona <b>no celular</b>, não só no computador</li>
-          <li>O link do grupo está no e-mail e ainda aceita entrada</li>
-          <li>O evento de compra apareceu no painel do Meta — senão não há como otimizar depois</li>
-        </ul>
-      </div>
-      <div class="card cy">
-        <div class="ct">Decisão que precisa sair até o dia 26</div>
-        <p><b>Quantos dias o carrinho fica aberto.</b> Sem esse número, a copy de escassez do dia 28 não pode ser escrita — e escassez sem data é a que o público já aprendeu a ignorar. <b>Sugestão: sete dias, fechando quinta 03/09</b>, com a live de fechamento na véspera.</p>
-      </div>
-    </div>
+    <div class="note"><b>O teste de compra precisa provar quatro coisas:</b> o pagamento aprova e o acesso chega em menos de dois minutos · o login funciona no celular · o link do grupo está no e-mail e aceita entrada · o evento de compra apareceu no painel do Meta.</div>
   </div>
-  <div class="foot"><span>Caio Ronconi · Cronograma de lançamento · 17 a 28/08/2026</span><span>04</span></div>
-</section><div class="sn">Cronograma · 04 / 07</div></div>
+  <div class="foot"><span>Caio Ronconi · Cronograma · 17 a 28/08/2026</span><span>04</span></div>
+</section><div class="sn">Cronograma · 04 / 06</div></div>
 <div class="wrap"><section class="slide dark">
-  <div class="s-head"><div class="tag">05 · Trilha diária</div><div class="num">CRONOGRAMA / 07</div></div>
+  <div class="s-head"><div class="tag">05 · Conteúdo diário</div><div class="num">CRONOGRAMA / 06</div></div>
   <h2 class="t">O conteúdo roda por fora, <em class="s cy">todos os dias</em>.</h2>
-  <p class="lead">Essa trilha não para nem nos dias de gravação — por isso o colchão de domingo vira gravação em bloco se sobrar. <strong>Ela sobe a escada junto com o cronograma</strong>: começa falando com quem duvida e termina falando com quem já decidiu.</p>
+  <p class="lead">Um Reels por dia útil, um bloco de story por dia, um pedido de DM por dia. <b>Sobe a escada junto com o cronograma:</b> começa em quem duvida e termina em quem já decidiu.</p>
   <div class="rule"></div>
   <div class="body-wrap">
-    <table>
-      <tr><th style="width:104px">Período</th><th style="width:186px">Blocos das 100 perguntas</th><th style="width:74px">Nível</th><th>O que o conteúdo faz</th></tr>
-      <tr><td class="k">17 a 20/08</td><td><b>Blocos 1, 2 e 8</b><br>desconfiança · consigo · história</td><td>1</td><td>Enche o topo e faz gente de fora acreditar que é real. <b>Zero menção a produto.</b> Quem vender aqui queima a base antes de ter oferta.</td></tr>
-      <tr><td class="k">21 a 24/08</td><td><b>Blocos 3, 6 e 4</b><br>aparecer · tempo · dinheiro</td><td>1 e 2</td><td>Derruba as desculpas e <b>começa a plantar a lacuna</b>: "gravei uma aula sobre isso". A pessoa passa a esperar algo sem saber o quê.</td></tr>
-      <tr><td class="k">25 a 27/08</td><td><b>Blocos 5, 7 e 9</b><br>produto · vídeo · preço</td><td>2 e 3</td><td>Mostra o mecanismo por cima e responde preço sem enrolar. Escassez real com data: <b>"sexta, ao vivo, às 20h"</b>.</td></tr>
-      <tr class="mark"><td class="k">28/08</td><td><b>Dia da oferta</b></td><td>3 e 4</td><td>Nenhuma pergunta plantada. O dia inteiro é abertura, prova e live.</td></tr>
+    <table class="fill">
+      <tr><th style="width:108px">Período</th><th style="width:210px">Blocos das 100 perguntas</th><th style="width:72px">Nível</th><th>O que faz</th></tr>
+      <tr>
+        <td class="k">17 a 20/08</td><td><b>Blocos 1, 2 e 8</b><br>desconfiança · consigo · história</td><td>1</td>
+        <td>Faz gente de fora acreditar que é real. <b>Zero menção a produto.</b></td>
+      </tr>
+      <tr>
+        <td class="k">21 a 24/08</td><td><b>Blocos 3, 6 e 4</b><br>aparecer · tempo · dinheiro</td><td>1 e 2</td>
+        <td>Derruba as desculpas e planta a lacuna: <b>"gravei uma aula sobre isso"</b>.</td>
+      </tr>
+      <tr>
+        <td class="k">25 a 27/08</td><td><b>Blocos 5, 7 e 9</b><br>produto · vídeo · preço</td><td>2 e 3</td>
+        <td>Mostra o mecanismo por cima e responde preço sem enrolar. Data na tela: <b>sexta</b>.</td>
+      </tr>
+      <tr>
+        <td class="k">28/08</td><td><b>Dia da abertura</b></td><td>3 e 4</td>
+        <td>Nenhuma pergunta plantada. O dia inteiro é abertura, prova e DM.</td>
+      </tr>
     </table>
-    <div class="g3">
-      <div class="card cy"><div class="ct">Diário, sem exceção</div><p><b>Um Reels por dia útil, um bloco de story por dia, um pedido de DM por dia.</b> O pedido de DM começa hoje — quando chegar o dia 28, você já terá a base separada por nível e vai mandar mensagem para quem interessa, não para todo mundo.</p></div>
-      <div class="card cy"><div class="ct">A conta do aquecimento</div><p>São <b>onze dias de conteúdo antes de abrir</b>. É pouco, e por isso não pode falhar nenhum: é o item mais barato do lançamento — não custa dinheiro, não depende de terceiro, não entra em fila de aprovação — e é o único que, se ficar para depois, não dá para recuperar.</p></div>
-      <div class="card cy"><div class="ct">O que fica de fora até o dia 28</div><p><b>A frente da agência não entra neste período.</b> O percentual ainda não está fechado, e — mais importante — duas ofertas ao mesmo tempo dividem a atenção da mesma base. A agência entra depois que o carrinho fechar.</p></div>
+    <div class="g2">
+      <div class="card">
+        <div class="ct">O pedido de DM começa hoje</div>
+        <p>Quando chegar o dia 28, você já terá a base separada por nível. <b>A mensagem sai para quem interessa, não para todo mundo</b> — e nível 3 e 4 recebem primeiro.</p>
+      </div>
+      <div class="card">
+        <div class="ct">A agência fica de fora</div>
+        <p>O percentual ainda não está fechado, e duas ofertas na mesma base dividem a atenção. <b>A frente da agência entra depois do dia 28.</b></p>
+      </div>
     </div>
   </div>
-  <div class="foot"><span>Caio Ronconi · Cronograma de lançamento · 17 a 28/08/2026</span><span>05</span></div>
-</section><div class="sn">Cronograma · 05 / 07</div></div>
+  <div class="foot"><span>Caio Ronconi · Cronograma · 17 a 28/08/2026</span><span>05</span></div>
+</section><div class="sn">Cronograma · 05 / 06</div></div>
 <div class="wrap"><section class="slide">
-  <div class="s-head"><div class="tag">06 · Dependências e riscos</div><div class="num">CRONOGRAMA / 07</div></div>
+  <div class="s-head"><div class="tag">06 · Riscos e decisões</div><div class="num">CRONOGRAMA / 06</div></div>
   <h2 class="t">O que trava o quê.</h2>
-  <p class="lead">Existem três correntes em série neste plano. Numa corrente em série, <strong>o atraso não é absorvido — ele é repassado inteiro para o último elo</strong>, que aqui é sempre o dia 28. Com onze dias, só há um colchão: o domingo 23.</p>
+  <p class="lead">Três correntes em série. <b>Numa corrente em série o atraso não some — ele vai inteiro para o último elo</b>, que aqui é sempre o dia 28.</p>
   <div class="rule"></div>
   <div class="body-wrap">
     <div class="g3">
       <div class="card">
         <div class="ct">Corrente 1 · a mais longa</div>
-        <h4>Gravação → lançamento</h4>
-        <p><b>Gravação → edição → VSL → página → lançamento.</b> Cinco elos, todos já iniciados hoje. Um dia perdido aqui é um dia perdido no dia 28.</p>
-        <p style="margin-top:8px;"><b>Proteção:</b> o colchão do domingo 23, e só ele.</p>
+        <h4>Gravação → abertura</h4>
+        <p>Gravação, edição, VSL, página, abertura. Cinco elos, todos já correndo hoje.</p>
+        <p style="margin-top:9px;"><b>Proteção:</b> o colchão do domingo 23.</p>
       </div>
       <div class="card">
         <div class="ct">Corrente 2 · a mais perigosa</div>
-        <h4>BM → checkout → evento</h4>
-        <p><b>Domínio → pixel → checkout → evento de compra.</b> A parte do Meta não depende de você: entra em fila de revisão de 1 a 3 dias úteis e pode reprovar.</p>
-        <p style="margin-top:8px;"><b>Proteção:</b> nenhuma. Por isso, começar hoje se der.</p>
+        <h4>BM → evento de compra</h4>
+        <p>Domínio, pixel, checkout, evento. A revisão do Meta leva de 1 a 3 dias úteis e pode reprovar — e isso não depende de você.</p>
+        <p style="margin-top:9px;"><b>Proteção:</b> nenhuma. Adiantar para hoje se der.</p>
       </div>
       <div class="card">
-        <div class="ct">Corrente 3 · a mais barata de resolver</div>
+        <div class="ct">Corrente 3 · a mais barata</div>
         <h4>Preço → três entregas</h4>
-        <p><b>Preço → checkout, VSL e página.</b> É uma decisão, não uma execução: não leva uma hora e destrava três dias de trabalho.</p>
-        <p style="margin-top:8px;"><b>Proteção:</b> decidir até dia 19, sem adiar.</p>
+        <p>O preço trava checkout, VSL e página ao mesmo tempo. É decisão, não execução.</p>
+        <p style="margin-top:9px;"><b>Proteção:</b> decidir até quarta 19.</p>
       </div>
     </div>
-    <div class="g2u">
-      <div class="card hi">
-        <div class="ct">As cinco decisões que ainda estão abertas</div>
-        <table style="margin-top:-2px">
-          <tr><th style="width:64px">Até</th><th>Decisão</th></tr>
-          <tr><td class="k">18/08</td><td>Qual plataforma de checkout. Trava todo o comercial.</td></tr>
-          <tr><td class="k">19/08</td><td><b>Preço final:</b> R$ 197 ou R$ 297. Trava três entregas.</td></tr>
-          <tr><td class="k">24/08</td><td>Onde o curso mora — qual área de membros.</td></tr>
-          <tr><td class="k">26/08</td><td>Quantos dias o carrinho fica aberto.</td></tr>
-          <tr><td class="k">—</td><td>O percentual da agência. <b>Não trava este lançamento</b>, mas trava a frente seguinte.</td></tr>
-        </table>
-      </div>
-      <div class="card">
-        <div class="ct">Se algo der errado, o que se corta</div>
-        <p>Nesta ordem, e só nesta ordem: <b>1)</b> o Radar de Trends como order bump — vende depois. <b>2)</b> o grupo de WhatsApp — entra na semana 1 de carrinho. <b>3)</b> o Sprint dos 7 Dias em PDF — pode ser entregue em vídeo dentro do curso. <b>O que nunca se corta:</b> o teste de compra do dia 27 e a live do dia 28.</p>
-      </div>
-    </div>
-  </div>
-  <div class="foot"><span>Caio Ronconi · Cronograma de lançamento · 17 a 28/08/2026</span><span>06</span></div>
-</section><div class="sn">Cronograma · 06 / 07</div></div>
-<div class="wrap"><section class="slide dark">
-  <div class="s-head"><div class="tag">07 · Dia D e carrinho</div><div class="num">CRONOGRAMA / 07</div></div>
-  <h2 class="t">Sexta, 28 de agosto.</h2>
-  <p class="lead">O dia não começa com link. Começa com <strong>uma hora de aviso sem lugar para clicar</strong> — é o que junta a audiência no mesmo horário em vez de espalhar a venda pelo dia todo.</p>
-  <div class="rule"></div>
-  <div class="body-wrap">
     <div class="g2">
-      <div class="card">
-        <div class="ct">O dia, hora a hora</div>
-        <table style="margin-top:-2px">
-          <tr><td class="k">Manhã</td><td>Story de abertura. <b>Sem link.</b> "Hoje abre, às 20h eu explico ao vivo."</td></tr>
-          <tr><td class="k">Meio-dia</td><td>Reels de abertura + link na bio. O primeiro ponto de compra do dia.</td></tr>
-          <tr><td class="k">Tarde</td><td>DM para a base separada por nível — <b>nível 3 e 4 primeiro</b>, um por um, em áudio.</td></tr>
-          <tr><td class="k">18h</td><td>Story de contagem: quantos já entraram. Prova em tempo real.</td></tr>
-          <tr><td class="k">20h</td><td><b>Live de abertura.</b> Vende ao vivo, responde na hora, mostra o painel.</td></tr>
-          <tr><td class="k">Noite</td><td>Story com as primeiras compras. Encerra agradecendo, não empurrando.</td></tr>
-        </table>
-      </div>
       <div class="card hi">
-        <div class="ct">A semana de carrinho · 28/08 a 03/09</div>
-        <p>A sequência de sete dias <b>já está escrita</b> na estrutura de ManyChat: entrega e oferta no D0, prova replicável no D1, objeção de tempo no D2, objeção de exposição no D3, contraste com o inimigo no D4, escassez real no D5 e último aviso no D6.</p>
+        <div class="ct">Quatro decisões ainda abertas</div>
         <ul>
-          <li><b>Entre 70% e 85% das vendas</b> acontecem depois do primeiro contato — quem para de falar no dia 28 joga fora a maior parte do caixa</li>
-          <li><b>Quarta 02/09:</b> live de fechamento, na véspera</li>
-          <li><b>Quinta 03/09:</b> carrinho fecha. Depois disso o contato volta para a lista de nutrição por 30 dias</li>
+          <li><span class="d">18/08</span> Qual plataforma de checkout</li>
+          <li><span class="d">19/08</span> <b>Preço final: R$ 197 ou R$ 297</b></li>
+          <li><span class="d">24/08</span> Onde o curso vai morar</li>
+          <li><span class="d">—</span> O percentual da agência. Não trava este lançamento, trava o próximo</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="ct">Se atrasar, o que se corta — nesta ordem</div>
+        <ul>
+          <li><b>1.</b> Radar de Trends como order bump. Vende depois</li>
+          <li><b>2.</b> Grupo de WhatsApp. Entra na primeira semana</li>
+          <li><b>3.</b> Sprint dos 7 Dias em PDF. Vira vídeo dentro do curso</li>
+          <li><b>Nunca se corta:</b> o teste de compra do dia 27</li>
         </ul>
       </div>
     </div>
-    <div class="note"><b>O que medir já no dia 28, e não depois:</b> quantos comentaram a palavra-chave · quantos entraram no fluxo · quantos clicaram no checkout · quantos compraram. Se a conta quebrar entre "clicou" e "comprou", o problema é preço ou página. Se quebrar entre "comentou" e "clicou", o problema é o fluxo. <b>Sem esses quatro números separados, o pós-lançamento vira achismo.</b></div>
   </div>
-  <div class="foot"><span>Caio Ronconi · Cronograma de lançamento · 17 a 28/08/2026</span><span>07</span></div>
-</section><div class="sn">Cronograma · 07 / 07</div></div>
+  <div class="foot"><span>Caio Ronconi · Cronograma · 17 a 28/08/2026</span><span>06</span></div>
+</section><div class="sn">Cronograma · 06 / 06</div></div>
   </div></div>
 </main>
 
